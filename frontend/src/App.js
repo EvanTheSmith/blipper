@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route} from 'react-router-dom'
+// import { connect } from 'react-redux';
 
 import Navbar from './components/Navbar'
-import Blips from './components/Blips';
+import Home from './containers/Home'
 
 class App extends Component { 
   render() {
@@ -10,10 +11,10 @@ class App extends Component {
     <Router>
     <div className="App">
       <Navbar />
-      <Route exact path="/" component={Blips} />
+      <Route exact path="/" component={Home} />
     </div>
     </Router>
   )}
 }
 
-export default App;
+export default App
