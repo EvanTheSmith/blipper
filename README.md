@@ -4,6 +4,8 @@
 
 # Usage
 
+First, ensure you have react-router-dom installed via "npm install react-router-dom"
+
 Navigate to the "blipper_backend" directory and enter "rails s" into your terminal to launch the server. Once that is up and running, switch to the "blipper_frontend" directory and enter "npm start."
 
 # Contributing
