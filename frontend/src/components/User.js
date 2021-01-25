@@ -2,7 +2,7 @@ import React from "react"
 
 const User = (props) => (
   <div className="user_card">
-    This is a user.
+    Username: {props.user.username}
   </div>
 )
 
