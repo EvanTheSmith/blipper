@@ -14,12 +14,12 @@ class Users extends Component {
   }
 
   render() { 
-    return <div>{this.renderUsers()}</div>
+    return this.props.loading ? "Loading ..." : <div>{this.renderUsers()}</div>
   }
 }
 
 const mapStateToProps = (state) => {
-  return { users: state.users }
+  return { users: state.users, loading: state.loading }
 }
  
 const mapDispatchToProps = dispatch => {
