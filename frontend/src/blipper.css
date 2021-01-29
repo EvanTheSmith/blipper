@@ -1,5 +1,6 @@
 .App {
-  /* Styling for whole app goes here */
+  width: 800px;
+  margin: 0 auto;
 }
 
 .navBar {
