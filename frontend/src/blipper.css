@@ -13,3 +13,9 @@
 a {
   color: white;
 }
+
+.user_card {
+  border-left: 5px solid black;
+  margin: 5px;
+  padding: 5px;
+}
