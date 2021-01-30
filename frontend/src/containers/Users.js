@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { fetchUsers } from '../actions/userActions'
+import { fetchUsers, followUser  } from '../actions/userActions'
 import User from '../components/User'
 
 class Users extends Component {
@@ -35,7 +35,10 @@ const mapStateToProps = (state) => {
 }
  
 const mapDispatchToProps = dispatch => {
-  return { fetchUsers: () => dispatch(fetchUsers()) }
+  return { 
+    fetchUsers: () => dispatch(fetchUsers()), 
+    followUser: () => dispatch(followUser())
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Users)
