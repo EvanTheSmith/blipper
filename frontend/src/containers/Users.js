@@ -13,11 +13,15 @@ class Users extends Component {
     return this.props.users.map(user => <User key={user.id} renderFollowButton={() => this.renderFollowButton(user)} user={user} />)
   }
 
+  handleFollow = (notAlreadyFollowing, { username }) => {
+    notAlreadyFollowing ? console.log(`Now following ${username}`) : console.log(`Now unfollowing ${username}`)
+  }
+
   renderFollowButton = (this_user) => {
     let notAlreadyFollowing = !(this_user.followers.find(follower => follower.id === this.props.current_user))
     let notCurrentUser = this_user.id !== this.props.current_user;
     if (notCurrentUser) { 
-      return <button>{notAlreadyFollowing ? "Follow" : "Unfollow"}</button> 
+      return <button onClick={() => this.handleFollow(notAlreadyFollowing, this_user)} >{notAlreadyFollowing ? "Follow" : "Unfollow"}</button> 
     }
   }
 
