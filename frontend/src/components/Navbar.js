@@ -4,9 +4,10 @@ import { NavLink } from 'react-router-dom'
 const Navbar = () => {
    return (
     <div className="navBar">
-        <img width="200px" src='/banner.png' />
-        <NavLink to="/" exact >Home</NavLink>
-        <NavLink to="/users" exact >Users</NavLink>
+        <img className="banner" src='/banner.png' />
+        <NavLink className="navLinks" to="/" exact >Home</NavLink>{" / "}
+        <NavLink className="navLinks" to="/users" exact >Users</NavLink>{" / "}
+        <NavLink className="navLinks" to="/users/EvanSmith" exact >Profile</NavLink>
     </div>
    )
 }
