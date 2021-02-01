@@ -20,8 +20,9 @@ class Users extends Component {
   renderFollowButton = (this_user) => () => {
     let notAlreadyFollowing = !(this_user.followers.find(follower => follower.id === this.props.current_user))
     let notCurrentUser = this_user.id !== this.props.current_user;
+    let buttonText = (notFollowing) => notFollowing ? "Follow" : "Unfollow"
     if (notCurrentUser) { 
-      return <button onClick={this.handleFollow(notAlreadyFollowing, this_user)} >{notAlreadyFollowing ? "Follow" : "Unfollow"}</button> 
+      return <button onClick={this.handleFollow(notAlreadyFollowing, this_user)} >{buttonText(notAlreadyFollowing)}</button> 
     }
   }
 
