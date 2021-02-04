@@ -9,8 +9,9 @@ class Blips extends Component {
     this.props.fetchUsers()
   }
 
-  renderMyBlips = () => {
-  return <Blip content="Blip 1" />
+  renderMyBlips = () => { 
+  let theUser = this.props.users.filter(user => user.id === this.props.current_user)[0];
+  if (theUser) { return theUser.blips.map(blip => <Blip key={blip.id} content={blip.content} />) } else {return null}
   }
 
   render() { 
