@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Blips from '../components/Blips'
+import Blips from '../containers/Blips'
 
 class Home extends Component {
   render() { 
