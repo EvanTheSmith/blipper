@@ -9,8 +9,12 @@ class Blips extends Component {
     this.props.fetchUsers()
   }
 
-  render() { console.log(this.props.users);
-    return this.props.loading ? "Loading ..." : <Blip content="Blip 1" />
+  renderMyBlips = () => {
+  return <Blip content="Blip 1" />
+  }
+
+  render() { 
+    return this.props.loading ? "Loading ..." : this.renderMyBlips()
   }
 }
 
