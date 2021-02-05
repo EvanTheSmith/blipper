@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './blipper.css';
 
-import { composeWithDevTools } from 'redux-devtools-extension';
+import { composeWithDevTools } from 'redux-devtools-extension'; // for testing in Chrome
 
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
