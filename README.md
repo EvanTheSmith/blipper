@@ -8,6 +8,7 @@ First, ensure you have the following dependencies installed:
 > npm install react-router-dom
 > npm install --save react-redux
 > npm install --save redux-thunk
+> npm install --save redux-devtools-extension
 
 Navigate to the "blipper_backend" directory and enter "rails s" into your terminal to launch the server. Once that is up and running, switch to the "blipper_frontend" directory and enter "npm start."
 
