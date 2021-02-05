@@ -10,7 +10,7 @@ class Blips extends Component {
   }
 
   renderMyBlips = () => {
-    return this.props.blips.map(blip => <Blip content={blip.content} />)
+    return this.props.blips.map(blip => <Blip key={blip.id} content={blip.content} />)
   }
 
   render() { 
