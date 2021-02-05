@@ -2,7 +2,7 @@ import React from "react"
 
 const Blip = (props) => (
   <div className="blip">
-    My content is {props.content}
+    {props.content}
   </div>
 )
 
