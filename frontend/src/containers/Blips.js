@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { fetchUsers } from '../actions/userActions'
+import { fetchBlips } from '../actions/blipActions'
 import Blip from '../components/Blip'
 
 class Blips extends Component {
@@ -9,9 +9,8 @@ class Blips extends Component {
     this.props.fetchUsers()
   }
 
-  renderMyBlips = () => { 
-  let theUser = this.props.users.filter(user => user.id === this.props.current_user)[0];
-  if (theUser) { return theUser.blips.map(blip => <Blip key={blip.id} content={blip.content} />) } else {return null}
+  renderMyBlips = () => {
+    return this.props.blips.map(blip => <Blip content={blip.content} />)
   }
 
   render() { 
@@ -20,11 +19,11 @@ class Blips extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return { users: state.users, loading: state.loading, current_user: state.user_id }
+  return { blips: state.blips, loading: state.loading, current_user: state.user_id }
 }
 
 const mapDispatchToProps = dispatch => {
-  return { fetchUsers: () => dispatch(fetchUsers()) }
+  return { fetchUsers: () => dispatch(fetchBlips()) }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Blips)

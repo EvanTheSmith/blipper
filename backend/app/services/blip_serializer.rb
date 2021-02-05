@@ -7,7 +7,7 @@ class BlipSerializer
     @blip.to_json(:include => [
       {:user => {:only => [:id, :username]}}, 
       {:likers => {:only => [:id, :username]}}],  
-    :except => [:updated_at])
+    :except => [:updated_at, :user_id])
   end
     
 end
