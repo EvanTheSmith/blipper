@@ -3,7 +3,7 @@ import Blips from './Blips'
 
 class Home extends Component {
   render() { 
-    return <Blips renderMethod="Home" />
+    return <Blips renderMethod="User" />
   }
 }
  
