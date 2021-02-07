@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchUsers, followUser  } from '../actions/userActions'
 import User from '../components/User'
 
-class Users extends Component {
+class UsersPage extends Component {
 
   componentDidMount() {
     this.props.fetchUsers()
@@ -42,4 +42,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Users)
+export default connect(mapStateToProps, mapDispatchToProps)(UsersPage)

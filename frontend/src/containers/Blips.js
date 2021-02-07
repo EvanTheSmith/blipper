@@ -22,9 +22,12 @@ class Blips extends Component {
         renderArray = homePageBlips;
       }
       if (renderMethod === "User") {
-        let userPageID = users.filter(user => user.username === this.props.username)[0].id;
+        let userPageID;
+        let canFindUser = users.filter(user => user.username === this.props.username)[0];
+        // If user can be found via username, grab the ID. If not, return the below sentence to inform user \/
+        if (canFindUser) {userPageID = canFindUser.id} else {return "Incorrect username entered in address bar"}
         let userPageBlips = blips.filter(blip => blip.user.id === userPageID);
-        renderArray = userPageBlips;
+        renderArray = userPageBlips; 
       }
       return renderArray.map(blip => <Blip key={blip.id} content={blip.content} />);
     }

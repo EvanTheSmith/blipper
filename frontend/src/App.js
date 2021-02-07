@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 import Navbar from './components/Navbar'
-import Home from './containers/Home'
-import Users from './containers/Users'
-import User from './containers/User'
+import HomePage from './pages/HomePage'
+import UsersPage from './pages/UsersPage'
+import UserPage from './pages/UserPage'
 
 class App extends Component { 
   render() {
@@ -12,9 +12,9 @@ class App extends Component {
     <Router>
     <div className="App">
       <Navbar />
-      <Route exact path="/" component={Home} />
-      <Route exact path="/users" component={Users} />
-      <Route exact path="/users/:username" component={User} />
+      <Route exact path="/" component={HomePage} />
+      <Route exact path="/users" component={UsersPage} />
+      <Route exact path="/users/:username" component={UserPage} />
     </div>
     </Router>
   )}

@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import Blips from './Blips'
+import Blips from '../containers/Blips'
 
-class Home extends Component {
+class HomePage extends Component {
   render() { 
     return <Blips renderMethod="Home" />
   }
 }
  
-export default Home
+export default HomePage
