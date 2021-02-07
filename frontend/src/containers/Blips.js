@@ -17,9 +17,12 @@ class Blips extends Component {
     if (userObject) {
       let followedUserIDs = userObject.followings;
       let homePageBlips = blips.filter(blip => blip.user.id === current_user || followedUserIDs.some(user => user.id === blip.user.id ));
+      let userPageBlips = blips.filter(blip => blip.user.id === current_user)
 
-      if (renderMethod === "Home") { return homePageBlips.map(blip => <Blip key={blip.id} content={blip.content} />) }
-      if (renderMethod === "User") { return "This is the user page" }
+      let renderArray; // this ternary operator determines which array to feed into the return below
+      renderMethod === "Home" ? renderArray = homePageBlips : renderArray = userPageBlips;
+
+      return renderArray.map(blip => <Blip key={blip.id} content={blip.content} />);
     }
     return null
   }
