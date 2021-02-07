@@ -14,17 +14,21 @@ class Blips extends Component {
   renderMyBlips = () => { 
     let {current_user, users, blips, renderMethod} = this.props;
     let userObject = users.filter(user => user.id === current_user)[0];
+    let renderArray; // this array will be rewritten depending on whether the Home or a User page is rendering
     if (userObject) {
-      let followedUserIDs = userObject.followings;
-      let homePageBlips = blips.filter(blip => blip.user.id === current_user || followedUserIDs.some(user => user.id === blip.user.id ));
-      let userPageBlips = blips.filter(blip => blip.user.id === current_user)
-
-      let renderArray; // this ternary operator determines which array to feed into the return below
-      renderMethod === "Home" ? renderArray = homePageBlips : renderArray = userPageBlips;
-
+      if (renderMethod === "Home") {
+        let followedUserIDs = userObject.followings;
+        let homePageBlips = blips.filter(blip => blip.user.id === current_user || followedUserIDs.some(user => user.id === blip.user.id ));
+        renderArray = homePageBlips;
+      }
+      if (renderMethod === "User") {
+        let userPageID = users.filter(user => user.username === this.props.username)[0].id;
+        let userPageBlips = blips.filter(blip => blip.user.id === userPageID);
+        renderArray = userPageBlips;
+      }
       return renderArray.map(blip => <Blip key={blip.id} content={blip.content} />);
     }
-    return null
+    return null // returns null as a default if userObject wasn't truthy
   }
 
   render() {

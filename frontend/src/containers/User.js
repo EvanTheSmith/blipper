@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import Blips from './Blips'
 
-class Home extends Component {
-  render() { 
-    return <Blips renderMethod="User" />
+class User extends Component {
+  render() {
+    return <Blips username={this.props.match.params.username} renderMethod="User" />
   }
 }
  
-export default Home
+export default User
