@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+import { postBlip } from '../actions/blipActions';
 
 class BlipForm extends Component {
 
-  state = { content: '' };
+  state = { content: '', user_id: this.props.current_user };
 
   handleChange = (e) => { this.setState({content: e.target.value}); };
 
@@ -11,7 +12,7 @@ class BlipForm extends Component {
       e.preventDefault();
       this.props.postBlip(this.state);
       this.setState({content: ''});
-    }
+  }
   // handleSubmit = (e) => { e.preventDefault(); this.props.dispatch({ type: 'POST_BLIP', payload: this.state }); }
 
   render() {
@@ -27,12 +28,13 @@ class BlipForm extends Component {
 
 }
 
-const mapStateToProps = (state) => { return { users: state.users, current_user: state.user_id } }
+const mapStateToProps = (state) => { return { current_user: state.user_id } }
 
 const mapDispatchToProps = dispatch => {
  return { 
-     postBlip: stateContent => dispatch({ type: 'POST_BLIP', payload: {content: stateContent} }) 
-    };
+     // postBlip: stateContent => dispatch({ type: 'POST_BLIP', payload: stateContent }) 
+     postBlip: state => dispatch(postBlip(state)) 
+    }; 
 };
 
 

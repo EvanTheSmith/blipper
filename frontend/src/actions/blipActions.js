@@ -6,3 +6,7 @@ export const fetchBlips = () => {
     .then(blips => dispatch({ type: 'ADD_BLIPS', blips }));
   };
 }
+
+export const postBlip = (payload) => {
+  return { type: 'POST_BLIP', payload }
+}
