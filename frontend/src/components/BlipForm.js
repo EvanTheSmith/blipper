@@ -12,10 +12,9 @@ class BlipForm extends Component {
 
   render() {
     return(
-      <div>
+      <div className="blipForm">
         <form onSubmit={this.handleSubmit}>
-          <label>Create new Blip</label>
-          <input type="content" onChange={this.handleChange} value={this.state.content} />
+          <textarea type="content" onChange={this.handleChange} value={this.state.content} /><br />
           <input type="submit" />
         </form> 
       </div>
@@ -28,7 +27,7 @@ const mapStateToProps = (state) => { return { users: state.users, current_user: 
 
 const mapDispatchToProps = dispatch => {
  return { 
-     postBlip: stateContent => dispatch({ type: 'POST_BLIP', payload: {content: stateContent, user: this.props.current_user} }) 
+     postBlip: stateContent => dispatch({ type: 'POST_BLIP', payload: {content: stateContent} }) 
     };
 };
 
