@@ -7,6 +7,13 @@ const blipperReducer = (state = { user_id: 1, blips: [], users: [], loading: fal
           users: [...state.users],
           loading: true
         }
+        case 'RESOLVE_ERROR':
+          return {
+            ...state,
+            blips: [...state.blips],
+            users: [...state.users],
+            loading: false
+          }
       case 'ADD_BLIPS':
         return {
           ...state,
