@@ -7,7 +7,11 @@ class BlipForm extends Component {
 
   handleChange = (e) => { this.setState({content: e.target.value}); };
 
-  handleSubmit = (e) => { e.preventDefault(); this.props.postBlip(this.state) }
+  handleSubmit = (e) => { 
+      e.preventDefault();
+      this.props.postBlip(this.state);
+      this.setState({content: ''});
+    }
   // handleSubmit = (e) => { e.preventDefault(); this.props.dispatch({ type: 'POST_BLIP', payload: this.state }); }
 
   render() {
