@@ -32,10 +32,9 @@ const mapStateToProps = (state) => { return { current_user: state.user_id } }
 
 const mapDispatchToProps = dispatch => {
  return { 
-     // postBlip: stateContent => dispatch({ type: 'POST_BLIP', payload: stateContent }) 
+     // postBlip: state => dispatch({ type: 'POST_BLIP', payload: state }) // ( before using Action Creator )
      postBlip: state => dispatch(postBlip(state)) 
     }; 
 };
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(BlipForm);
