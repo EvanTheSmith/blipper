@@ -14,7 +14,11 @@ class UsersPage extends Component {
   }
 
   handleFollow = (notAlreadyFollowing, this_user) => () => {
-    notAlreadyFollowing ? console.log(`Now following ${this_user.username}`) : console.log(`Now unfollowing ${this_user.username}`)
+    if (notAlreadyFollowing) {
+      this.props.followUser({follow: this_user.id, follower: this.props.current_user});
+    }
+    else 
+    { console.log(`Now unfollowing ${this_user.id}`) } // WORK IN PROGRESS !!!!!!!!!!!!!
   }
 
   renderFollowButton = (this_user) => () => {
@@ -44,7 +48,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
   return { 
     fetchUsers: () => dispatch(fetchUsers()), 
-    followUser: () => dispatch(followUser()),
+    followUser: payload => dispatch(followUser(payload)),
     changeUser: () => dispatch(changeUser())
   }
 }
