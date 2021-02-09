@@ -20,7 +20,7 @@ class BlipForm extends Component {
       <div className="blipForm">
         <form onSubmit={this.handleSubmit}>
           <textarea type="content" onChange={this.handleChange} value={this.state.content} /><br />
-          <input type="submit" />
+          <input value="Post Blip" type="submit" />
         </form> 
       </div>
     )

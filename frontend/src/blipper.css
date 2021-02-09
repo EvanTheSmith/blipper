@@ -36,3 +36,9 @@
 .blipForm {
   padding: 10px;
 }
+
+textarea {
+  resize: none;
+  width: 775px;
+  height: 60px;
+}

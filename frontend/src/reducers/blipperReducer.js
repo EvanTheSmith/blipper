@@ -7,13 +7,13 @@ const blipperReducer = (state = { user_id: 1, blips: [], users: [], loading: fal
           users: [...state.users],
           loading: true
         }
-        case 'RESOLVE_ERROR': // This sets loading back to false after an error message
-          return {
-            ...state,
-            blips: [...state.blips],
-            users: [...state.users],
-            loading: false
-          }
+        // case 'RESOLVE_ERROR': // This sets loading back to false after an error message
+        //   return {
+        //     ...state,
+        //     blips: [...state.blips],
+        //     users: [...state.users],
+        //     loading: false
+        //   }
       case 'ADD_BLIPS':
         return {
           ...state,
@@ -36,6 +36,9 @@ const blipperReducer = (state = { user_id: 1, blips: [], users: [], loading: fal
           loading: false
         }
         case 'CHANGE_FOR_FOLLOW': // THIS IS A WORK IN PROGRESS //////////////////////////////
+          let follower = action.users[0];
+          let followed = action.users[1];
+
           return {
             ...state,
             blips: [...state.blips],
