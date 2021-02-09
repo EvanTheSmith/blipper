@@ -7,12 +7,14 @@ export const fetchUsers = () => {
   };
 }
 
-export const followUser = () => {
+export const followUser = (payload) => { // WORK IN PROGRESS ACTION
   return (dispatch) => {
-    // dispatch({ type: 'LOADING_USERS' });
-    // fetch('http://localhost:3000/users')
+    // dispatch({ type: 'FOLLOW_USER' });
+    let config = { method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(payload) };
+    fetch('http://localhost:3000/users', config)
     // .then(response => response.json())
-    // .then(users => dispatch({ type: 'ADD_USERS', users }));
+    // .then(user => dispatch({ type: 'FOLLOW_USER', user }));
+    .then(user => console.log(user));
   };
 }
 
