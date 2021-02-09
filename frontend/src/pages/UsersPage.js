@@ -1,13 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { fetchUsers, followUser, unfollowUser, changeUser  } from '../actions/userActions'
+import { followUser, unfollowUser, changeUser  } from '../actions/userActions'
 import User from '../components/User'
 
 class UsersPage extends Component {
-
-  componentDidMount() {
-    this.props.fetchUsers()
-  }
 
   renderUsers = () => {
     return this.props.loading ? "Loading ..." : this.props.users.map(user => <User key={user.id} renderFollowButton={this.renderFollowButton(user)} user={user} />)
@@ -38,17 +34,16 @@ class UsersPage extends Component {
   )}
 }
 
-const mapStateToProps = (state) => {
-  return { users: state.users, loading: state.loading, current_user: state.user_id }
-}
+const mapStateToProps = (state) => ({ 
+  users: state.users, 
+  loading: state.loading, 
+  current_user: state.user_id 
+})
  
-const mapDispatchToProps = dispatch => {
-  return { 
-    fetchUsers: () => dispatch(fetchUsers()), 
-    followUser: payload => dispatch(followUser(payload)),
-    unfollowUser: payload => dispatch(unfollowUser(payload)),
-    changeUser: () => dispatch(changeUser())
-  }
-}
+const mapDispatchToProps = dispatch => ({ 
+  followUser: payload => dispatch(followUser(payload)),
+  unfollowUser: payload => dispatch(unfollowUser(payload)),
+  changeUser: () => dispatch(changeUser())
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(UsersPage)

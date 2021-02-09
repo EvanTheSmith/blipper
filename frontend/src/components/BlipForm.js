@@ -13,7 +13,6 @@ class BlipForm extends Component {
       this.props.postBlip(this.state);
       this.setState({content: ''});
   }
-  // handleSubmit = (e) => { e.preventDefault(); this.props.dispatch({ type: 'POST_BLIP', payload: this.state }); }
 
   render() {
     return(
@@ -25,16 +24,9 @@ class BlipForm extends Component {
       </div>
     )
   }
-
 }
 
-const mapStateToProps = (state) => { return { current_user: state.user_id } }
-
-const mapDispatchToProps = dispatch => {
- return { 
-     // postBlip: state => dispatch({ type: 'POST_BLIP', payload: state }) // ( before using Action Creator )
-     postBlip: state => dispatch(postBlip(state)) 
-    }; 
-};
+const mapStateToProps = (state) => ({ current_user: state.user_id })
+const mapDispatchToProps = dispatch => ({ postBlip: state => dispatch(postBlip(state)) })
 
 export default connect(mapStateToProps, mapDispatchToProps)(BlipForm);

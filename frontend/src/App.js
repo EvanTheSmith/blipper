@@ -2,12 +2,20 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 
+import { fetchBlips } from './actions/blipActions'
+import { fetchUsers } from './actions/userActions'
+
 import Navbar from './components/Navbar'
 import HomePage from './pages/HomePage'
 import UsersPage from './pages/UsersPage'
 import UserPage from './pages/UserPage'
 
 class App extends Component { 
+
+  componentDidMount() {
+    this.props.fetchUsers();
+    this.props.fetchBlips();
+  }
 
   currentUserObj = () => this.props.users.filter(user => user.id === this.props.current_user)[0];
 
@@ -24,6 +32,11 @@ class App extends Component {
   )}
 }
 
-const mapStateToProps = (state) => { return { users: state.users, current_user: state.user_id } }
+const mapStateToProps = (state) => ({ users: state.users, current_user: state.user_id })
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = dispatch => ({
+    fetchBlips: () => dispatch(fetchBlips()),
+    fetchUsers: () => dispatch(fetchUsers())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

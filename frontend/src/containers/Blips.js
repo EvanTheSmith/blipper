@@ -1,15 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { fetchBlips } from '../actions/blipActions'
-import { fetchUsers } from '../actions/userActions'
 import Blip from '../components/Blip'
 
 class Blips extends Component {
-
-  componentDidMount() {
-    this.props.fetchUsers();
-    this.props.fetchBlips();
-  }
 
   renderMyBlips = () => { 
     let {current_user, users, blips, renderMethod} = this.props;
@@ -39,15 +32,11 @@ class Blips extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return { users: state.users, blips: state.blips, loading: state.loading, current_user: state.user_id }
-}
+const mapStateToProps = (state) => ({
+  users: state.users, 
+  blips: state.blips, 
+  loading: state.loading, 
+  current_user: state.user_id
+})
 
-const mapDispatchToProps = dispatch => {
-  return { 
-    fetchBlips: () => dispatch(fetchBlips()),
-    fetchUsers: () => dispatch(fetchUsers())
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Blips)
+export default connect(mapStateToProps)(Blips)
