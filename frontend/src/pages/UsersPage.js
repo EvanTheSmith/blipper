@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { fetchUsers, followUser  } from '../actions/userActions'
+import { fetchUsers, followUser, changeUser  } from '../actions/userActions'
 import User from '../components/User'
 
 class UsersPage extends Component {
@@ -10,7 +10,7 @@ class UsersPage extends Component {
   }
 
   renderUsers = () => {
-    return this.props.users.map(user => <User key={user.id} renderFollowButton={this.renderFollowButton(user)} user={user} />)
+    return this.props.loading ? "Loading ..." : this.props.users.map(user => <User key={user.id} renderFollowButton={this.renderFollowButton(user)} user={user} />)
   }
 
   handleFollow = (notAlreadyFollowing, this_user) => () => {
@@ -27,8 +27,13 @@ class UsersPage extends Component {
   }
 
   render() { 
-    return this.props.loading ? "Loading ..." : <div>{this.renderUsers()}</div>
-  }
+    return (
+      <div>
+      {this.renderUsers()}
+      <br />
+      <button>Change User</button>
+      </div>
+  )}
 }
 
 const mapStateToProps = (state) => {
@@ -38,7 +43,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
   return { 
     fetchUsers: () => dispatch(fetchUsers()), 
-    followUser: () => dispatch(followUser())
+    followUser: () => dispatch(followUser()),
+    changeUser: () => dispatch(changeUser())
   }
 }
 

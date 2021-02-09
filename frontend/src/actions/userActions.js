@@ -15,3 +15,7 @@ export const followUser = () => {
     // .then(users => dispatch({ type: 'ADD_USERS', users }));
   };
 }
+
+export const changeUser = () => {
+  return { type: 'CHANGE_USER' };
+}
