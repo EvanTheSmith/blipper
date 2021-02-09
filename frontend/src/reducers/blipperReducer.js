@@ -1,6 +1,6 @@
 const blipperReducer = (state = { user_id: 1, blips: [], users: [], loading: false }, action) => {
     switch(action.type) {
-      case 'LOADING': // Loading status for any additions to the store
+      case 'LOADING': // Loading status for any BIG additions to the store
         return {
           ...state,
           blips: [...state.blips],
@@ -35,7 +35,7 @@ const blipperReducer = (state = { user_id: 1, blips: [], users: [], loading: fal
           users: action.users,
           loading: false
         }
-        case 'CHANGE_FOR_FOLLOW':
+        case 'CHANGE_FOR_FOLLOW': // THIS IS A WORK IN PROGRESS //////////////////////////////
           return {
             ...state,
             blips: [...state.blips],
