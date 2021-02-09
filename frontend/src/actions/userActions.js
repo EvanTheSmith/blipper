@@ -7,7 +7,7 @@ export const fetchUsers = () => {
   };
 }
 
-export const followUser = (payload) => { // WORK IN PROGRESS ACTION
+export const followUser = (payload) => { // WORK IN PROGRESS ACTION /////////////
   return (dispatch) => {
     // dispatch({ type: 'FOLLOW_USER' });
     let config = { method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(payload) };
@@ -18,9 +18,9 @@ export const followUser = (payload) => { // WORK IN PROGRESS ACTION
   };
 }
 
-export const unfollowUser = (payload) => { // WORK IN PROGRESS ACTION
+export const unfollowUser = (payload) => { // WORK IN PROGRESS ACTION /////////////
   return (dispatch) => {
-    // dispatch({ type: 'FOLLOW_USER' });
+    // Will I need a LOADING action here? I don't know yet. Let's see ...
     let config = { method: "DELETE", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(payload) };
     fetch('http://localhost:3000/follows', config)
     .then(response => response.json())
