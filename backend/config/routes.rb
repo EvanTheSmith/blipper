@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   post '/blips', to: 'blips#create'
 
   post '/follows', to: 'follows#create' # When a User is followed
+  delete '/follows', to: 'follows#destroy' # When a User is unfollowed
 end

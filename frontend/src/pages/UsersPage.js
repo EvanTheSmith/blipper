@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { fetchUsers, followUser, changeUser  } from '../actions/userActions'
+import { fetchUsers, followUser, unfollowUser, changeUser  } from '../actions/userActions'
 import User from '../components/User'
 
 class UsersPage extends Component {
@@ -18,7 +18,7 @@ class UsersPage extends Component {
       this.props.followUser({follow: this_user.id, follower: this.props.current_user});
     }
     else 
-    { console.log(`Now unfollowing ${this_user.id}`) } // WORK IN PROGRESS !!!!!!!!!!!!!
+    { this.props.unfollowUser({follow: this_user.id, follower: this.props.current_user});}
   }
 
   renderFollowButton = (this_user) => () => {
@@ -49,6 +49,7 @@ const mapDispatchToProps = dispatch => {
   return { 
     fetchUsers: () => dispatch(fetchUsers()), 
     followUser: payload => dispatch(followUser(payload)),
+    unfollowUser: payload => dispatch(unfollowUser(payload)),
     changeUser: () => dispatch(changeUser())
   }
 }
