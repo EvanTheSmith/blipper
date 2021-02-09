@@ -13,20 +13,17 @@ class UsersPage extends Component {
     return this.props.loading ? "Loading ..." : this.props.users.map(user => <User key={user.id} renderFollowButton={this.renderFollowButton(user)} user={user} />)
   }
 
-  handleFollow = (notAlreadyFollowing, this_user) => () => {
-    if (notAlreadyFollowing) {
-      this.props.followUser({follow: this_user.id, follower: this.props.current_user});
-    }
-    else 
-    { this.props.unfollowUser({follow: this_user.id, follower: this.props.current_user});}
+  handleFollow = (notAlreadyFollowing, this_user_id, current_user_id) => () => {
+    let actionType = () => { return notAlreadyFollowing ? this.props.followUser : this.props.unfollowUser }
+    actionType()({follow: this_user_id, follower: current_user_id});
   }
 
   renderFollowButton = (this_user) => () => {
     let notAlreadyFollowing = !(this_user.followers.find(follower => follower.id === this.props.current_user))
     let notCurrentUser = this_user.id !== this.props.current_user;
-    let buttonText = (notFollowing) => notFollowing ? "Follow" : "Unfollow"
-    if (notCurrentUser) { 
-      return <button onClick={this.handleFollow(notAlreadyFollowing, this_user)} >{buttonText(notAlreadyFollowing)}</button> 
+    let buttonText = notAlreadyFollowing ? "Follow" : "Unfollow"
+    if (notCurrentUser) { // Only render the button at all if this user is not the logged-in user
+      return <button onClick={this.handleFollow(notAlreadyFollowing, this_user.id, this.props.current_user)} >{buttonText}</button> 
     }
   }
 

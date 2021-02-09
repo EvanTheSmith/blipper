@@ -6,7 +6,6 @@ class UserPage extends Component {
     let { username } = this.props.match.params;
     return (
     <>
-    <p>Blips you have created will show here.</p>
     <Blips username={username} renderMethod="User" />
     </>
   )}
