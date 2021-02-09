@@ -3,7 +3,8 @@ import Blips from '../containers/Blips'
 
 class UserPage extends Component {
   render() {
-    return <Blips username={this.props.match.params.username} renderMethod="User" />
+    let { username } = this.props.match.params;
+    return <Blips username={username} renderMethod="User" />
   }
 }
  
