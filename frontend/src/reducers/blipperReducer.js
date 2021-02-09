@@ -28,6 +28,13 @@ const blipperReducer = (state = { user_id: 1, blips: [], users: [], loading: fal
           users: action.users,
           loading: false
         }
+        case 'CHANGE_FOR_FOLLOW':
+          return {
+            ...state,
+            blips: [...state.blips],
+            users: [...state.users],
+            loading: false
+          }
        case 'CHANGE_USER': // For testing purposes, this simulates changing the current user
           return {
             ...state,

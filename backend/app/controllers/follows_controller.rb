@@ -7,10 +7,13 @@ class FollowsController < ApplicationController
     end
 
     def destroy
-      # follow = Follow.find(follower_id: params[:follower])
+      follow = Follow.find{|x| x.follower_id == params[:follower] && x.followed_user_id == params[:follow]}
+      follow.destroy
 
-      # follow = Follow.find(follower_id: params[:follower], followed_user_id: params[:follow])
-      # render json: follow
-      render json: {follower: params[:follower]}
+      follower = User.find_by(id: params[:follower])
+      followed_user = User.find_by(id: params[:follow])
+
+      users = [follower, followed_user]
+      render json: UserSerializer.new(users).to_serialized_json
     end
 end
