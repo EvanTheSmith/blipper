@@ -31,7 +31,8 @@ class UsersPage extends Component {
       <div>
       {this.renderUsers()}
       <br />
-      <button>Change User</button>
+      {/* Button for testing purposes below */}
+      <button onClick={this.props.changeUser} >Change User</button>
       </div>
   )}
 }
