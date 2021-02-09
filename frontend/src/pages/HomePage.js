@@ -7,6 +7,7 @@ class HomePage extends Component {
     return (
       <>
       <BlipForm />
+      <p>Blips from creators you follow and blips you have created will show here.</p>
       <Blips renderMethod="Home" />
       </>
     )

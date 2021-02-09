@@ -4,8 +4,12 @@ import Blips from '../containers/Blips'
 class UserPage extends Component {
   render() {
     let { username } = this.props.match.params;
-    return <Blips username={username} renderMethod="User" />
-  }
+    return (
+    <>
+    <p>Blips you have created will show here.</p>
+    <Blips username={username} renderMethod="User" />
+    </>
+  )}
 }
  
 export default UserPage
