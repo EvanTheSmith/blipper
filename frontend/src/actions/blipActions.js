@@ -16,3 +16,23 @@ export const postBlip = (payload) => {
     .then(blip => blip.id ? dispatch({ type: 'ADD_ONE_BLIP', blip }) : window.alert("Error(s): "+blip) )
   };
 }
+
+export const likeBlip = (payload) => {
+  return (dispatch) => {
+    // I chose not to trigger a LOADING action here
+    let config = { method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(payload) };
+    fetch('http://localhost:3000/likes', config)
+    .then(response => response.json())
+    .then(data => dispatch({ type: 'CHANGE_FOR_LIKE', data }));
+  };
+}
+
+export const unlikeBlip = (payload) => {
+  return (dispatch) => {
+    // I chose not to trigger a LOADING action here
+    let config = { method: "DELETE", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(payload) };
+    fetch('http://localhost:3000/likes', config)
+    .then(response => response.json())
+    .then(data => dispatch({ type: 'CHANGE_FOR_LIKE', data }));
+  };
+}

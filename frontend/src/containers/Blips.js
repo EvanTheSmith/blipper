@@ -1,8 +1,20 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+import { likeBlip, unlikeBlip } from '../actions/blipActions'
 import Blip from '../components/Blip'
 
 class Blips extends Component {
+
+  renderLike = (this_blip) => () => {
+    let notAlreadyLiked = !(this_blip.likers.find(liker => liker.id === this.props.current_user));
+    let buttonText = notAlreadyLiked ? "Like" : "Unlike";
+    return <button onClick={this.handleLike(notAlreadyLiked, this_blip.id, this.props.current_user)}>{buttonText}</button> 
+  }
+
+  handleLike = (notAlreadyLiked, this_blip_id, current_user_id) => () => {
+    let actionType = () => { return notAlreadyLiked ? this.props.likeBlip : this.props.unlikeBlip }
+    actionType()({user: current_user_id, blip: this_blip_id});
+  }
 
   renderMyBlips = () => { 
     let {current_user, users, blips, renderMethod} = this.props;
@@ -22,7 +34,7 @@ class Blips extends Component {
         let userPageBlips = blips.filter(blip => blip.user.id === userPageID);
         renderArray = userPageBlips; 
       }
-      return renderArray.map(blip => <Blip key={blip.id} blip={blip} />);
+      return renderArray.map(blip => <Blip key={blip.id} blip={blip} renderLike={this.renderLike(blip)} />);
     }
     return null // returns null as a default if userObject wasn't truthy
   }
@@ -39,4 +51,9 @@ const mapStateToProps = (state) => ({
   current_user: state.user_id
 })
 
-export default connect(mapStateToProps)(Blips)
+const mapDispatchToProps = dispatch => ({ 
+  likeBlip: payload => dispatch(likeBlip(payload)),
+  unlikeBlip: payload => dispatch(unlikeBlip(payload))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Blips)
