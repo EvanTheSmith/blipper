@@ -21,6 +21,13 @@ const blipperReducer = (state = { user_id: 1, blips: [], users: [], loading: fal
           blips: [action.blip, ...state.blips],
           users: [...state.users]
         }
+      case 'CHANGE_FOR_LIKE': // updates the blip involved in a like/unlike
+        likedBlips = state.blips.map(state_blip => (state_blip.id === action.blip.id ? action.blip : state_blip));
+        return {
+          ...state,
+          blips: likedBlips,
+          users: [...state.users]
+        }
       case 'ADD_USERS':
         return {
           ...state,
@@ -28,9 +35,8 @@ const blipperReducer = (state = { user_id: 1, blips: [], users: [], loading: fal
           users: action.users,
           loading: false
         }
-      case 'CHANGE_FOR_FOLLOW': // this action updates the two users in the store involved in a follow or unfollow
-        let follower = action.users[0]
-        let followed_user = action.users[1]
+      case 'CHANGE_FOR_FOLLOW': // updates the two users in the store involved in a follow or unfollow
+        let { follower, followed_user } = action.users
 
         newUsers = state.users.map(function(user) {
           if (user.id === follower.id) {return follower}
@@ -42,13 +48,6 @@ const blipperReducer = (state = { user_id: 1, blips: [], users: [], loading: fal
           ...state,
           blips: [...state.blips],
           users: newUsers
-        }
-      case 'CHANGE_FOR_LIKE': // this action updates the blip involved in a like/unlike
-        likedBlips = state.blips.map(state_blip => (state_blip.id === action.blip.id ? action.blip : state_blip));
-        return {
-          ...state,
-          blips: likedBlips,
-          users: [...state.users]
         }
       case 'CHANGE_USER': // For testing purposes, this simulates changing the current user
         return {
