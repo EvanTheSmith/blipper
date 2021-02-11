@@ -44,9 +44,7 @@ const blipperReducer = (state = { user_id: 1, blips: [], users: [], loading: fal
           users: newUsers
         }
       case 'CHANGE_FOR_LIKE': // this action updates the blip involved in a like/unlike
-        let blip_idx = state.blips.findIndex(b => b.id === action.blip.id)
-        newBlips = [...state.blips.slice(0, blip_idx), action.blip, ...state.blips.slice(blip_idx + 1)];
-
+        newBlips = state.blips.map(state_blip => (state_blip.id === action.blip.id ? action.blip : state_blip));
         return {
           ...state,
           blips: newBlips,
