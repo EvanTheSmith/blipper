@@ -6,7 +6,6 @@ class LikesController < ApplicationController
       like = Like.create(liker: liker, liked_blip: liked_blip)
 
       render json: BlipSerializer.new(liked_blip).to_serialized_json
-      # UserSerializer.new(users).to_serialized_json ( I probably won't use a serializer for this)
     end
 
     def destroy
