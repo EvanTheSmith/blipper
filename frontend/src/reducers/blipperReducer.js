@@ -1,5 +1,5 @@
 const blipperReducer = (state = { user_id: 1, blips: [], users: [], loading: false }, action) => {
-    let newUsers; let newBlips;
+    let newUsers; let likedBlips;
     switch(action.type) {
       case 'LOADING': // Loading status for any BIG additions to the store
         return {
@@ -31,12 +31,12 @@ const blipperReducer = (state = { user_id: 1, blips: [], users: [], loading: fal
       case 'CHANGE_FOR_FOLLOW': // this action updates the two users in the store involved in a follow or unfollow
         let follower = action.users[0];
         let followed = action.users[1];
-        let idx;
 
-        idx = state.users.findIndex(user => user.id === follower.id)
-        newUsers = [...state.users.slice(0, idx), follower, ...state.users.slice(idx + 1)];
-        idx = state.users.findIndex(user => user.id === followed.id)
-        newUsers = [...newUsers.slice(0, idx), followed, ...newUsers.slice(idx + 1)];
+        newUsers = state.users.map(function(u) {
+          if (u.id === follower.id) {return follower} else
+          if (u.id === followed.id) {return followed} else
+          {return u}
+        })
 
         return {
           ...state,
@@ -44,10 +44,10 @@ const blipperReducer = (state = { user_id: 1, blips: [], users: [], loading: fal
           users: newUsers
         }
       case 'CHANGE_FOR_LIKE': // this action updates the blip involved in a like/unlike
-        newBlips = state.blips.map(state_blip => (state_blip.id === action.blip.id ? action.blip : state_blip));
+        likedBlips = state.blips.map(state_blip => (state_blip.id === action.blip.id ? action.blip : state_blip));
         return {
           ...state,
-          blips: newBlips,
+          blips: likedBlips,
           users: [...state.users]
         }
       case 'CHANGE_USER': // For testing purposes, this simulates changing the current user
