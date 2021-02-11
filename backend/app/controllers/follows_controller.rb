@@ -13,7 +13,7 @@ class FollowsController < ApplicationController
       follower = User.find_by(id: params[:follower])
       followed_user = User.find_by(id: params[:follow])
 
-      follow = Follow.find{|x| x.follower_id == params[:follower] && x.followed_user_id == params[:follow]}
+      follow = Follow.find{|x| x.follower_id == follower.id && x.followed_user_id == followed_user.id}
       follow.destroy
 
       users = [follower, followed_user]

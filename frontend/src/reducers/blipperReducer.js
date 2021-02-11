@@ -29,13 +29,13 @@ const blipperReducer = (state = { user_id: 1, blips: [], users: [], loading: fal
           loading: false
         }
       case 'CHANGE_FOR_FOLLOW': // this action updates the two users in the store involved in a follow or unfollow
-        let follower = action.users[0];
-        let followed = action.users[1];
+        let follower = action.users[0]
+        let followed_user = action.users[1]
 
-        newUsers = state.users.map(function(u) {
-          if (u.id === follower.id) {return follower} else
-          if (u.id === followed.id) {return followed} else
-          {return u}
+        newUsers = state.users.map(function(user) {
+          if (user.id === follower.id) {return follower}
+          if (user.id === followed_user.id) {return followed_user}
+          return user
         })
 
         return {
