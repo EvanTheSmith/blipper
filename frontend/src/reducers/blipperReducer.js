@@ -1,13 +1,14 @@
 const blipperReducer = (state = { user_id: 1, blips: [], users: [], loading: false }, action) => {
     let newUsers; let likedBlips;
     switch(action.type) {
-      case 'LOADING': // Loading status for any BIG additions to the store
+      case 'LOADING': // Loading status used for ADD_BLIPS and ADD_USERS
         return {
           ...state,
           blips: [...state.blips],
           users: [...state.users],
           loading: true
         }
+      // ALL ACTIONS PERTAINING TO BLIPS ///////////////////////////////
       case 'ADD_BLIPS':
         return {
           ...state,
@@ -28,6 +29,7 @@ const blipperReducer = (state = { user_id: 1, blips: [], users: [], loading: fal
           blips: likedBlips,
           users: [...state.users]
         }
+      // ALL ACTIONS PERTAINING TO USERS ///////////////////////////////
       case 'ADD_USERS':
         return {
           ...state,
@@ -44,10 +46,10 @@ const blipperReducer = (state = { user_id: 1, blips: [], users: [], loading: fal
           return user;
         })
 
-        return {
-          ...state,
-          blips: [...state.blips],
-          users: newUsers
+        return { 
+          ...state, 
+          blips: [...state.blips], 
+          users: newUsers 
         }
       case 'CHANGE_USER': // For testing purposes, this simulates changing the current user
         return {
