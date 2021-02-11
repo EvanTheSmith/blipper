@@ -39,9 +39,9 @@ const blipperReducer = (state = { user_id: 1, blips: [], users: [], loading: fal
         let { follower, followed_user } = action.users
 
         newUsers = state.users.map(function(user) {
-          if (user.id === follower.id) {return follower}
-          if (user.id === followed_user.id) {return followed_user}
-          return user
+          if (user.id === follower.id) {return follower};
+          if (user.id === followed_user.id) {return followed_user};
+          return user;
         })
 
         return {
