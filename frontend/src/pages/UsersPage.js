@@ -6,7 +6,7 @@ import User from '../components/User'
 class UsersPage extends Component {
 
   renderUsers = () => {
-    return this.props.loading ? "Loading ..." : this.props.users.map(user => <User key={user.id} renderFollowButton={this.renderFollowButton(user)} user={user} />)
+    return this.props.loading ? "Loading ..." : this.props.users.map(user => <User key={user.id} renderFollowButton={this.renderFollowButton(user)} countMyLikes={this.countMyLikes(user)} user={user} />)
   }
 
   handleFollow = (notAlreadyFollowing, this_user_id, current_user_id) => () => {
@@ -23,6 +23,12 @@ class UsersPage extends Component {
     }
   }
 
+  countMyLikes = (user) => () => {
+    let myBlips = this.props.blips.filter(blip => blip.user.id === user.id && blip.likers.length !== 0);
+    let myLikes = myBlips.map(blip => blip.likers).length;
+    return myLikes;
+  }
+
   render() { 
     return (
       <div>
@@ -36,6 +42,7 @@ class UsersPage extends Component {
 
 const mapStateToProps = (state) => ({ 
   users: state.users, 
+  blips: state.blips,
   loading: state.loading, 
   current_user: state.user_id 
 })
