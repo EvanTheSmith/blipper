@@ -23,7 +23,7 @@ export const likeBlip = (payload) => {
     let config = { method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(payload) };
     fetch('http://localhost:3000/likes', config)
     .then(response => response.json())
-    .then(data => dispatch({ type: 'CHANGE_FOR_LIKE', data }));
+    .then(blip => dispatch({ type: 'CHANGE_FOR_LIKE', blip }));
   };
 }
 
@@ -33,6 +33,6 @@ export const unlikeBlip = (payload) => {
     let config = { method: "DELETE", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(payload) };
     fetch('http://localhost:3000/likes', config)
     .then(response => response.json())
-    .then(data => dispatch({ type: 'CHANGE_FOR_LIKE', data }));
+    .then(blip => dispatch({ type: 'CHANGE_FOR_LIKE', blip }));
   };
 }

@@ -43,20 +43,14 @@ const blipperReducer = (state = { user_id: 1, blips: [], users: [], loading: fal
           blips: [...state.blips],
           users: newUsers
         }
-      case 'CHANGE_FOR_LIKE': // this action updates the user who likes a blip and the blip they liked in the store involved in a like
-        let user = action.data[0];
-        let blip = action.data[1];
-        let user_idx; let blip_idx;
-
-        user_idx = state.users.findIndex(u => u.id === user.id)
-        newUsers = [...state.users.slice(0, user_idx), user, ...state.users.slice(user_idx + 1)];
-        blip_idx = state.blips.findIndex(b => b.id === blip.id)
-        newBlips = [...state.blips.slice(0, blip_idx), blip, ...state.blips.slice(blip_idx + 1)];
+      case 'CHANGE_FOR_LIKE': // this action updates the blip involved in a like/unlike
+        let blip_idx = state.blips.findIndex(b => b.id === action.blip.id)
+        newBlips = [...state.blips.slice(0, blip_idx), action.blip, ...state.blips.slice(blip_idx + 1)];
 
         return {
           ...state,
           blips: newBlips,
-          users: newUsers
+          users: [...state.users]
         }
       case 'CHANGE_USER': // For testing purposes, this simulates changing the current user
         return {

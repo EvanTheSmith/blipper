@@ -13,7 +13,7 @@ class Blips extends Component {
 
   handleLike = (notAlreadyLiked, this_blip_id, current_user_id) => () => {
     let actionType = () => { return notAlreadyLiked ? this.props.likeBlip : this.props.unlikeBlip }
-    actionType()({user: current_user_id, blip: this_blip_id});
+    actionType()({blip: this_blip_id, user: current_user_id});
   }
 
   renderMyBlips = () => { 
