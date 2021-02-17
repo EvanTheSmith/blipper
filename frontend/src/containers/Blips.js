@@ -30,7 +30,7 @@ class Blips extends Component {
         let homePageBlips = blips.filter(blip => blip.user.id === current_user || followedUserIDs.some(user => user.id === blip.user.id ));
         renderArray = homePageBlips;
       }
-      if (renderMethod === "User") {
+      else if (renderMethod === "User") {
         // let userPageID; // declare the variable here to prevent bugs
         // let canFindUser = users.filter(user => user.username === this.props.username)[0];
         // If user can be found via username, grab the ID. If not, return the below sentence to inform user \/

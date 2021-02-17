@@ -13,10 +13,9 @@ class UserPage extends Component {
 
   renderIfValidUser = () => {
     let { username } = this.props.match.params;
-    let the_user = this.props.users.filter(user => user.id === this.props.current_user)[0];
     let canFindUser = this.props.users.filter(user => user.username === username)[0];
     let success_jsx = (<>
-    <div> {the_user && the_user.username} has received {this.countMyLikes(the_user)} likes</div>
+    <div> {canFindUser && canFindUser.username} has received {this.countMyLikes(canFindUser)} likes</div>
     <Blips username={username} renderMethod="User" />
     </>)
 
