@@ -10,6 +10,10 @@
   height: 100px;
 }
 
+.blip_star {
+  height: 25px;
+}
+
 .navLinks {
   color: white;
 }
