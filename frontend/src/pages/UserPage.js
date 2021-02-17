@@ -7,14 +7,14 @@ class UserPage extends Component {
   countMyLikes = (user) => {
     let myBlips = this.props.blips.filter(blip => blip.user.id === user.id && blip.likers.length !== 0);
     let myLikes = myBlips.map(blip => blip.likers).flat(1);
-    // let removeOwnLikes = myLikes.filter(liker => liker.id !== user.id);
+    // let removeOwnLikes = myLikes.filter(liker => liker.id !== user.id); // OPTIONAL : filter own likes
     return myLikes.length;
   }
 
   renderIfValidUser = () => {
     let { username } = this.props.match.params; // Grab username from URL params
     let canFindUser = this.props.users.filter(user => user.username === username)[0];
-    let renderPage = (<>
+    let renderPage = canFindUser && (<>
     <div> {canFindUser.username} has received {this.countMyLikes(canFindUser)} likes</div>
     <Blips username={username} renderMethod="User" />
     </>)
