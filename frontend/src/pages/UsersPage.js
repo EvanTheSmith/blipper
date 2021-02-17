@@ -6,7 +6,7 @@ import User from '../components/User'
 class UsersPage extends Component {
 
   renderUsers = () => {
-    return this.props.loading ? "Loading ..." : this.props.users.map(user => <User key={user.id} renderFollowButton={this.renderFollowButton(user)} countMyLikes={this.countMyLikes(user)} user={user} />)
+    return this.props.loading ? "Loading ..." : this.props.users.map(user => <User key={user.id} renderFollowButton={this.renderFollowButton(user)} user={user} />)
   }
 
   handleFollow = (notAlreadyFollowing, this_user_id, current_user_id) => () => {
@@ -21,13 +21,6 @@ class UsersPage extends Component {
     if (notCurrentUser) { // Only render the button at all if this user is not the logged-in user
       return <button onClick={this.handleFollow(notAlreadyFollowing, this_user.id, this.props.current_user)} >{buttonText}</button> 
     }
-  }
-
-  countMyLikes = (user) => () => {
-    let myBlips = this.props.blips.filter(blip => blip.user.id === user.id && blip.likers.length !== 0);
-    let myLikes = myBlips.map(blip => blip.likers).flat(1);
-    // let removeOwnLikes = myLikes.filter(liker => liker.id !== user.id);
-    return myLikes.length;
   }
 
   render() { 
