@@ -6,7 +6,7 @@ import User from '../components/User'
 class UsersPage extends Component {
 
   renderUsers = () => {
-    return this.props.loading ? "Loading ..." : this.props.users.map(user => <User key={user.id} renderFollowButton={this.renderFollowButton(user)} user={user} />)
+    return this.props.users.map(user => <User key={user.id} renderFollowButton={this.renderFollowButton(user)} user={user} />)
   }
 
   handleFollow = (notAlreadyFollowing, this_user_id, current_user_id) => () => {
@@ -24,7 +24,7 @@ class UsersPage extends Component {
   }
 
   render() { 
-    return (
+    return this.props.loading ? "Loading ..." : (
       <div>
       {this.renderUsers()}
       <br />

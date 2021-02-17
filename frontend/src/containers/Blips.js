@@ -50,7 +50,7 @@ class Blips extends Component {
   }
 
   render() {
-    return this.props.loading ? "Loading ..." : this.renderMyBlips()
+    return this.renderMyBlips()
   }
 }
 

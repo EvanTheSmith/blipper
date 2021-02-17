@@ -14,12 +14,12 @@ class UserPage extends Component {
   renderIfValidUser = () => {
     let { username } = this.props.match.params; // Grab username from URL params
     let canFindUser = this.props.users.filter(user => user.username === username)[0];
-    let success_jsx = (<>
-    <div> {canFindUser && canFindUser.username} has received {this.countMyLikes(canFindUser)} likes</div>
+    let renderPage = (<>
+    <div> {canFindUser && canFindUser.username} has received {canFindUser && this.countMyLikes(canFindUser)} likes</div>
     <Blips username={username} renderMethod="User" />
     </>)
 
-    return canFindUser ? success_jsx : "User not Found"
+    return canFindUser ? renderPage : "User not Found"
   }
 
   render() {
