@@ -7,8 +7,10 @@ class Blips extends Component {
 
   renderLike = (this_blip) => () => {
     let notAlreadyLiked = !(this_blip.likers.find(liker => liker.id === this.props.current_user));
-    let buttonText = notAlreadyLiked ? "Like" : "Unlike";
-    return <button onClick={this.handleLike(notAlreadyLiked, this_blip.id, this.props.current_user)}>{buttonText}</button> 
+    // let buttonText = notAlreadyLiked ? "Like" : "Unlike";
+    let star_url = notAlreadyLiked ? '/star_notliked.png' : '/star_liked.png';
+    // return <button onClick={this.handleLike(notAlreadyLiked, this_blip.id, this.props.current_user)}>{buttonText}</button> 
+    return <img onClick={this.handleLike(notAlreadyLiked, this_blip.id, this.props.current_user)} className="blip_star" alt="blipper like star" src={star_url} />
   }
 
   handleLike = (notAlreadyLiked, this_blip_id, current_user_id) => () => {
