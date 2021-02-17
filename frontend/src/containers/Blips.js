@@ -16,6 +16,10 @@ class Blips extends Component {
     actionType()({blip: this_blip_id, user: current_user_id});
   }
 
+  renderPoster = (username, renderMethod) => () => {
+    return renderMethod === "Home" && ` / Posted by: ${username}`;
+  }
+
   renderMyBlips = () => { 
     let {current_user, users, blips, renderMethod} = this.props;
     let userObject = users.filter(user => user.id === current_user)[0];
@@ -34,7 +38,12 @@ class Blips extends Component {
         let userPageBlips = blips.filter(blip => blip.user.id === userPageID);
         renderArray = userPageBlips; 
       }
-      return renderArray.map(blip => <Blip key={blip.id} blip={blip} renderLike={this.renderLike(blip)} />);
+      return renderArray.map(blip => <Blip 
+        key={blip.id} 
+        renderMethod={renderMethod} 
+        blip={blip} 
+        renderLike={this.renderLike(blip)} 
+        renderPoster={this.renderPoster(blip.user.username, renderMethod)} />);
     }
     return null // returns null as a default if userObject wasn't truthy
   }
