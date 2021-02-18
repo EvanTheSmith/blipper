@@ -34,6 +34,7 @@ class Blips extends Component {
         let userPageBlips = blips.filter(blip => blip.user.id === page_user.id);
         renderArray = userPageBlips; 
       }
+    
     return renderArray.map(blip => <Blip 
       key={blip.id} 
       renderMethod={renderMethod} 
