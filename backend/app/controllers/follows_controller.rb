@@ -6,6 +6,7 @@ class FollowsController < ApplicationController
       follow = Follow.create(follower: follower, followed_user: followed_user)
 
       users = {follower: follower, followed_user: followed_user}
+      # Return the two affected users ^ to update the store:
       render json: UserSerializer.new(users).to_serialized_json
     end
 
@@ -17,6 +18,7 @@ class FollowsController < ApplicationController
       follow.destroy
 
       users = {follower: follower, followed_user: followed_user}
+      # Return the two affected users ^ to update the store:
       render json: UserSerializer.new(users).to_serialized_json
     end
 end
