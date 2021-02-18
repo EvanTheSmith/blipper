@@ -18,6 +18,7 @@ class Blips extends Component {
 
   renderPoster = (username, renderMethod) => () => {
     return renderMethod === "Home" && ` / Posted by: ${username}`;
+    // only render poster if renderMethod is Home
   }
 
   renderMyBlips = () => { 
