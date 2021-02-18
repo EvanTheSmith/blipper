@@ -35,8 +35,8 @@ class Blips extends Component {
         // let canFindUser = users.filter(user => user.username === this.props.username)[0];
         // If user can be found via username, grab the ID. If not, return the below sentence to inform user \/
         // if (canFindUser) {userPageID = canFindUser.id} else {return "Incorrect username entered in address bar"}
-        let userID = users.filter(user => user.username === this.props.username)[0].id;
-        let userPageBlips = blips.filter(blip => blip.user.id === userID);
+        let page_user = users.filter(user => user.username === this.props.username)[0];
+        let userPageBlips = blips.filter(blip => blip.user.id === page_user.id);
         renderArray = userPageBlips; 
       }
       return renderArray.map(blip => <Blip 
