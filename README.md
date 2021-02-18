@@ -1,6 +1,6 @@
 # Blipper
 
-< App Description >
+Welcome to Blipper, a new social media site for a modern Web. User account creation is coming in the future, but for now, we have the ability to post "Blips," our name for your voice on our site, your messages to the world. You can like other users' Blips, follow users you like, and explore our aquatic-themed site.
 
 # Usage
 
