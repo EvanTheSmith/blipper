@@ -22,31 +22,25 @@ class Blips extends Component {
 
   renderMyBlips = () => { 
     let {current_user, users, blips, renderMethod} = this.props;
-    let userObject = users.filter(user => user.id === current_user)[0];
-    let renderArray; // this array will be rewritten depending on whether the Home or a User page is rendering
-    if (userObject) {
+    let userObject = users.filter(user => user.id === current_user)[0] || {};
+    let renderArray; // this variable will be rewritten depending on whether the Home or a User page is rendering
+
       if (renderMethod === "Home") {
         let followedUserIDs = userObject.followings;
         let homePageBlips = blips.filter(blip => blip.user.id === current_user || followedUserIDs.some(user => user.id === blip.user.id ));
         renderArray = homePageBlips;
-      }
-      else if (renderMethod === "User") {
-        // let userPageID; // declare the variable here to prevent bugs
-        // let canFindUser = users.filter(user => user.username === this.props.username)[0];
-        // If user can be found via username, grab the ID. If not, return the below sentence to inform user \/
-        // if (canFindUser) {userPageID = canFindUser.id} else {return "Incorrect username entered in address bar"}
+      } else if (renderMethod === "User") {
         let page_user = users.filter(user => user.username === this.props.username)[0];
         let userPageBlips = blips.filter(blip => blip.user.id === page_user.id);
         renderArray = userPageBlips; 
       }
-      return renderArray.map(blip => <Blip 
-        key={blip.id} 
-        renderMethod={renderMethod} 
-        blip={blip} 
-        renderLike={this.renderLike(blip)} 
-        renderPoster={this.renderPoster(blip.user.username, renderMethod)} />);
-    }
-    return null // returns null as a default if userObject wasn't truthy
+    return renderArray.map(blip => <Blip 
+      key={blip.id} 
+      renderMethod={renderMethod} 
+      blip={blip} 
+      renderLike={this.renderLike(blip)} 
+      renderPoster={this.renderPoster(blip.user.username, renderMethod)} 
+    />);
   }
 
   render() {
