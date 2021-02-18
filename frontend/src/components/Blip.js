@@ -6,6 +6,8 @@ const Blip = (props) => (
     {props.renderLike()}
     Likes: {props.blip.likers.length}
     {props.renderPoster()}
+    <br />
+    {props.renderDelete()}
   </div>
 )
 

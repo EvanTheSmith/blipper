@@ -21,6 +21,10 @@ class Blips extends Component {
     // only render poster if renderMethod is Home
   }
 
+  renderDelete = (blip_user_id) => () => { // only render Delete Button if current user posted blip
+    return (this.props.current_user === blip_user_id) && <button>Delete Blip</button>
+  }
+
   renderMyBlips = () => { 
     let {current_user, users, blips, renderMethod} = this.props;
     let userObject = users.filter(user => user.id === current_user)[0] || {};
@@ -42,6 +46,7 @@ class Blips extends Component {
       blip={blip} 
       renderLike={this.renderLike(blip)} 
       renderPoster={this.renderPoster(blip.user.username, renderMethod)} 
+      renderDelete={this.renderDelete(blip.user.id)} 
     />);
   }
 
