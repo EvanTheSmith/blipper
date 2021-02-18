@@ -14,10 +14,14 @@ class UserPage extends Component {
   renderIfValidUser = () => {
     let { username } = this.props.match.params; // Grab username from URL params
     let canFindUser = this.props.users.filter(user => user.username === username)[0];
-    let user = canFindUser || {}; // prevents .username glitches below if cannot find user
+    let user = canFindUser || {followers: []}; // prevents .username glitches below if cannot find user
     let users_blips = this.props.blips.filter(blip => blip.user.id === user.id);
     let renderPage = (<>
-    <div> Welcome to {user.username}'s profile — Blips: {users_blips.length} / Likes: {this.countMyLikes(user)} </div>
+    <div> Welcome to {user.username}'s profile — 
+      Followers: {user.followers.length} / 
+      Blips: {users_blips.length} / 
+      Likes: {this.countMyLikes(user)}
+    </div>
     <Blips username={username} renderMethod="User" />
     </>)
 
