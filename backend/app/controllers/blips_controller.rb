@@ -15,7 +15,11 @@ class BlipsController < ApplicationController
       else
         render json: blip.errors.full_messages;
       end
-
     end 
+
+    def destroy
+      blip = Blip.find_by(id: params[:id])
+      blip.destroy
+    end
 
 end

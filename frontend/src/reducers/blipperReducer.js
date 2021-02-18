@@ -22,6 +22,12 @@ const blipperReducer = (state = { user_id: 1, blips: [], users: [], loading: fal
           blips: [action.blip, ...state.blips],
           users: [...state.users]
         }
+      case 'DELETE_BLIP':
+        return {
+          ...state,
+          blips: state.blips.filter(blip => blip.id !== action.blip_id), 
+          users: [...state.users]
+        } 
       case 'CHANGE_FOR_LIKE': // updates the blip involved in a like/unlike
         likedBlips = state.blips.map(state_blip => (state_blip.id === action.blip.id ? action.blip : state_blip));
         return {

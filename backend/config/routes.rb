@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   
   get '/blips' => 'blips#index'
   post '/blips', to: 'blips#create'
-
+  delete '/blips/:id', to: 'blips#destroy' # Delete a Blip
+  
   post '/follows', to: 'follows#create' # When a User is followed
   delete '/follows', to: 'follows#destroy' # When a User is unfollowed
 

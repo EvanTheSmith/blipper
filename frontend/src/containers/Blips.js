@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { likeBlip, unlikeBlip } from '../actions/blipActions'
+import { likeBlip, unlikeBlip, deleteBlip } from '../actions/blipActions'
 import Blip from '../components/Blip'
 
 class Blips extends Component {
@@ -21,8 +21,9 @@ class Blips extends Component {
     // only render poster if renderMethod is Home
   }
 
-  renderDelete = (blip_user_id) => () => { // only render Delete Button if current user posted blip
-    return (this.props.current_user === blip_user_id) && <button>Delete Blip</button>
+  renderDelete = (blip) => () => { // only render Delete Button if current user posted blip
+    let button = <button onClick={() => this.props.deleteBlip(blip.id)}>Delete Blip</button>
+    return (this.props.current_user === blip.user.id) && button;
   }
 
   renderMyBlips = () => { 
@@ -46,7 +47,7 @@ class Blips extends Component {
       blip={blip} 
       renderLike={this.renderLike(blip)} 
       renderPoster={this.renderPoster(blip.user.username, renderMethod)} 
-      renderDelete={this.renderDelete(blip.user.id)} 
+      renderDelete={this.renderDelete(blip)} 
     />);
   }
 
@@ -64,7 +65,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = dispatch => ({ 
   likeBlip: payload => dispatch(likeBlip(payload)),
-  unlikeBlip: payload => dispatch(unlikeBlip(payload))
+  unlikeBlip: payload => dispatch(unlikeBlip(payload)),
+  deleteBlip: payload => dispatch(deleteBlip(payload))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Blips)
