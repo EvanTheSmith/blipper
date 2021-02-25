@@ -1,3 +1,10 @@
+body {
+  background-image: url('./assets/bg.png');
+  background-size: 800px;
+  background-attachment: fixed;
+  color: white;
+ }
+
 .App {
   width: 800px;
   margin: 0 auto;
@@ -31,7 +38,7 @@
 }
 
 .blip {
-  background-color: #cff7f3;
+  background-color: #27337a;
   border: 1px solid black;
   border-left: 5px solid black;
   text-align: center;
