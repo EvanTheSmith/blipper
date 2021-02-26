@@ -5,7 +5,7 @@ const Blip = (props) => (
 
     <tr>
       <td>"{props.blip.content}"</td>
-      <td>{props.renderPoster()}</td>
+      <td className="blip-right">{props.renderPoster()}</td>
     </tr>
 
     <tr>
@@ -14,7 +14,7 @@ const Blip = (props) => (
       Likes: {props.blip.likers.length}
       </td>
 
-      <td>
+      <td className="blip-right">
       {props.renderDelete()}
       </td>
     </tr>
