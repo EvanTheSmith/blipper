@@ -4,8 +4,8 @@ const Blip = (props) => (
   <table className="blip">
 
     <tr>
-      <td>"{props.blip.content}"</td>
-      <td className="blip-right">{props.renderPoster()}</td>
+      <td> {props.blip.content} </td>
+      <td className="blip-right"> {props.renderPoster()} </td>
     </tr>
 
     <tr>

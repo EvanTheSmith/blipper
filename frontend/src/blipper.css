@@ -17,6 +17,11 @@ body {
   height: 100px;
 }
 
+.footer {
+  padding: 5px;
+  text-align: center;
+}
+
 .blip_star {
   height: 25px;
   padding-right: 5px;
@@ -33,7 +38,7 @@ body {
 
 .user_card {
   border-left: 5px solid black;
-  margin: 5px;
+  margin-top: 5px;
   padding: 5px;
 }
 
@@ -43,7 +48,7 @@ body {
   border-left: 5px solid black;
   width: 100%;
   text-align: left;
-  margin: 5px;
+  margin-top: 5px;
   padding: 20px;
 }
 

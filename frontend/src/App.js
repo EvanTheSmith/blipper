@@ -9,6 +9,7 @@ import Navbar from './components/Navbar'
 import HomePage from './pages/HomePage'
 import UsersPage from './pages/UsersPage'
 import UserPage from './pages/UserPage'
+import Footer from './components/Footer'
 
 class App extends Component { 
 
@@ -27,6 +28,7 @@ class App extends Component {
       <Route exact path="/" component={HomePage} />
       <Route exact path="/users" component={UsersPage} />
       <Route exact path="/users/:username" component={UserPage} />
+      <Footer />
     </div>
     </Router>
   )}
