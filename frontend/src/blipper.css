@@ -64,4 +64,6 @@ textarea {
   resize: none;
   width: 775px;
   height: 60px;
+  background-color: #27337a;
+  color: white;
 }
