@@ -37,15 +37,17 @@ body {
 }
 
 .user_card {
-  border-left: 5px solid black;
+  background-color: #27337a;
+  border: 1px solid #8990bb;
+  border-radius: 5px;
   margin-top: 5px;
-  padding: 5px;
+  padding: 20px;
 }
 
 .blip {
   background-color: #27337a;
   border: 2px solid black;
-  border-bottom: 2px solid #636fb4;
+  border-bottom: 2px solid #8990bb;
   width: 100%;
   text-align: left;
   margin-top: 5px;
