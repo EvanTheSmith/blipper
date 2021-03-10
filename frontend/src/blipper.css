@@ -44,8 +44,8 @@ body {
 
 .blip {
   background-color: #27337a;
-  border: 1px solid black;
-  border-left: 5px solid black;
+  border: 2px solid black;
+  border-bottom: 2px solid #636fb4;
   width: 100%;
   text-align: left;
   margin-top: 5px;
