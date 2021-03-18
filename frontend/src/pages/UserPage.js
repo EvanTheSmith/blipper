@@ -17,11 +17,11 @@ class UserPage extends Component {
     let user = canFindUser || {followers: []}; // prevents .username glitches below if cannot find user
     let users_blips = this.props.blips.filter(blip => blip.user.id === user.id);
     let renderPage = (<>
-    <div> Welcome to {user.username}'s profile — 
+    <br /><div> Welcome to {user.username}'s profile — 
       Followers: {user.followers.length} / 
       Blips: {users_blips.length} / 
       Likes: {this.countMyLikes(user)}
-    </div>
+    </div><br />
     <Blips username={username} renderMethod="User" />
     </>)
 
