@@ -1,6 +1,6 @@
 body {
   background-image: url('./assets/bg.png');
-  background-size: 800px;
+  background-size: 1300px;
   background-attachment: fixed;
   color: white;
  }
@@ -37,7 +37,7 @@ body {
 }
 
 .user_card {
-  background-color: #27337a;
+  background-color: #353f7a;
   border: 1px solid #8990bb;
   border-radius: 5px;
   margin-top: 5px;
@@ -45,7 +45,7 @@ body {
 }
 
 .blip {
-  background-color: #27337a;
+  background-color: #353f7a;
   border: 2px solid black;
   border-bottom: 2px solid #8990bb;
   width: 100%;
@@ -64,6 +64,18 @@ textarea {
   resize: none;
   width: 775px;
   height: 60px;
-  background-color: #27337a;
+  margin-bottom: 5px;
+  margin-bottom: 5px;
+  background-color: #131727;
+  border: #131727;
   color: white;
+}
+
+input[type=submit] {
+  background-color: #353f7a;
+  color: white;
+}
+
+button {
+  background-color: white;
 }
