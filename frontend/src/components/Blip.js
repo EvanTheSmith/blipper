@@ -1,7 +1,7 @@
 import React from "react"
 
 const Blip = (props) => (
-  <table className="blip">
+  <table className="blip"><tbody>
 
     <tr>
       <td> {props.blip.content} </td>
@@ -19,7 +19,7 @@ const Blip = (props) => (
       </td>
     </tr>
 
-  </table>
+    </tbody></table>
 )
 
 export default Blip
