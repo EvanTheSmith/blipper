@@ -58,11 +58,18 @@ const blipperReducer = (state = { user_id: 1, blips: [], users: [], loading: fal
           users: newUsers 
         }
       case 'CHANGE_USER': // For testing purposes, this simulates changing the current user
+
+        let lastUserID = state.users[state.users.length-1].id
+        let currentUserID = state.user_id
+
+        if (lastUserID === currentUserID) {currentUserID = 1} else {currentUserID++}
+        // If you click Change User on the last user, reset back to the first user
+
         return {
           ...state,
           blips: [...state.blips],
           users: [...state.users],
-          user_id: ++state.user_id
+          user_id: currentUserID
         }
       default:
         return state;
