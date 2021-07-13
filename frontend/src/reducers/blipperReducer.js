@@ -51,7 +51,7 @@ const blipperReducer = (state = { user_id: 1, blips: [], users: [], loading: fal
           if (user.id === follower.id) {return follower};
           if (user.id === followed_user.id) {return followed_user};
           return user;
-        })
+        }) // maps over all users in state, swapping out the follower and followed used based on id
 
         return { 
           ...state, 
