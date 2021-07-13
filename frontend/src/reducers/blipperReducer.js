@@ -30,6 +30,7 @@ const blipperReducer = (state = { user_id: 1, blips: [], users: [], loading: fal
         } 
       case 'CHANGE_FOR_LIKE': // updates the blip involved in a like/unlike
         likedBlips = state.blips.map(state_blip => (state_blip.id === action.blip.id ? action.blip : state_blip));
+        // Swap out the one blip whose id matches the id of the liked blip (i.e. the action.blip)
         return {
           ...state,
           blips: likedBlips,
