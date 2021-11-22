@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { likeBlip, unlikeBlip, deleteBlip } from '../actions/blipActions'
 import Blip from '../components/Blip'
+import { NavLink } from 'react-router-dom'
 
 class Blips extends Component {
 
@@ -16,8 +17,8 @@ class Blips extends Component {
     actionType()({blip: this_blip_id, user: current_user_id});
   }
 
-  renderPoster = (username, renderMethod) => () => {
-    return renderMethod === "Home" && username;
+  renderPoster = (userName, renderMethod) => () => {
+    return renderMethod === "Home" && <NavLink className="navLinks" to={`/users/${userName}`} exact >{userName}</NavLink>;
     // only render poster if renderMethod is Home
   }
 
