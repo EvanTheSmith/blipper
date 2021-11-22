@@ -10,8 +10,13 @@ class UsersPage extends Component {
   }
 
   handleFollow = (notAlreadyFollowing, this_user_id, current_user_id) => () => {
-    let actionType = () => { return notAlreadyFollowing ? this.props.followUser : this.props.unfollowUser }
-    actionType()({follow: this_user_id, follower: current_user_id});
+    // let actionType = () => { return notAlreadyFollowing ? this.props.followUser : this.props.unfollowUser }
+    // actionType()({follow: this_user_id, follower: current_user_id});
+    let payload = {follow: this_user_id, follower: current_user_id};
+    if (notAlreadyFollowing)
+    {this.props.followUser(payload)}
+    else
+    {this.props.unfollowUser(payload)}
   }
 
   renderFollowButton = (this_user) => () => {
