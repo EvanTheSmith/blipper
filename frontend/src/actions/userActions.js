@@ -10,7 +10,6 @@ export const fetchUsers = () => {
 export const followUser = (payload) => {
   return (dispatch) => {
     // dispatch({ type: 'LOADING' });
-    // I chose not to trigger a LOADING action here
     let config = { method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(payload) };
     fetch('http://localhost:3000/follows', config)
     .then(response => response.json())
@@ -21,7 +20,6 @@ export const followUser = (payload) => {
 export const unfollowUser = (payload) => {
   return (dispatch) => {
     // dispatch({ type: 'LOADING' });
-    // I chose not to trigger a LOADING action here
     let config = { method: "DELETE", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(payload) };
     fetch('http://localhost:3000/follows', config)
     .then(response => response.json())

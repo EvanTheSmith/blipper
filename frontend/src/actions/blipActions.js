@@ -10,7 +10,6 @@ export const fetchBlips = () => {
 export const postBlip = (payload) => {
   return (dispatch) => {
     // dispatch({ type: 'LOADING' });
-    // I chose not to trigger a LOADING action here
     let config = { method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(payload) };
     fetch('http://localhost:3000/blips', config)
     .then(response => response.json())
@@ -21,7 +20,6 @@ export const postBlip = (payload) => {
 export const likeBlip = (payload) => {
   return (dispatch) => {
     // dispatch({ type: 'LOADING' });
-    // I chose not to trigger a LOADING action here
     let config = { method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(payload) };
     fetch('http://localhost:3000/likes', config)
     .then(response => response.json())
@@ -32,7 +30,6 @@ export const likeBlip = (payload) => {
 export const unlikeBlip = (payload) => {
   return (dispatch) => {
     // dispatch({ type: 'LOADING' });
-    // I chose not to trigger a LOADING action here
     let config = { method: "DELETE", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(payload) };
     fetch('http://localhost:3000/likes', config)
     .then(response => response.json())
@@ -43,7 +40,6 @@ export const unlikeBlip = (payload) => {
 export const deleteBlip = (blip_id) => {
   return (dispatch) => {
     // dispatch({ type: 'LOADING' });
-    // I chose not to trigger a LOADING action here
     fetch(`http://localhost:3000/blips/${blip_id}`, {method: 'DELETE'})
     .then( () => dispatch({ type: 'DELETE_BLIP', blip_id }));
   };
