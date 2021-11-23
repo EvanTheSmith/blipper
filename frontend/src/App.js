@@ -15,7 +15,9 @@ class App extends Component {
 
   componentDidMount() {
     this.props.fetchUsers();
+    console.log("a");
     this.props.fetchBlips();
+    console.log("b");
   }
 
   currentUserObj = () => this.props.users.filter(user => user.id === this.props.current_user)[0];

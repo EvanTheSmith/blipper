@@ -3,8 +3,17 @@ import { connect } from 'react-redux';
 import { likeBlip, unlikeBlip, deleteBlip } from '../actions/blipActions'
 import Blip from '../components/Blip'
 import { NavLink } from 'react-router-dom'
+import SortButton from '../components/SortButton'
 
 class Blips extends Component {
+
+  // LIVE CODING //
+  state = { toggle: false };
+
+  toggleSort = () => {
+    this.state.toggle ? this.setState({toggle: false}) : this.setState({toggle: true})
+  }
+  //
 
   renderLike = (this_blip) => () => {
     let notAlreadyLiked = !(this_blip.likers.find(liker => liker.id === this.props.current_user));
@@ -34,13 +43,22 @@ class Blips extends Component {
 
       if (renderMethod === "Home") {
         let followedUserIDs = userObject.followings;
-        let homePageBlips = blips.filter(blip => blip.user.id === current_user || followedUserIDs.some(user => user.id === blip.user.id ));
+        let homePageBlips = blips.filter(blip => blip.user.id === current_user || followedUserIDs?.some(user => user.id === blip.user.id ));
         renderArray = homePageBlips;
       } else if (renderMethod === "User") {
         let page_user = users.filter(user => user.username === this.props.username)[0];
         let userPageBlips = blips.filter(blip => blip.user.id === page_user.id);
         renderArray = userPageBlips; 
       }
+    
+      // LIVE CODING //
+      let sortedArray = [...renderArray].sort((a, b) => {
+        let fa = a.user.username, fb = b.user.username, output = 0;
+        fa < fb ? (output = -1) : (output = 1);
+        return output;
+      });
+      this.state.toggle && (renderArray = sortedArray);
+      //////////////////////////////////////////////////
     
     return renderArray.map(blip => <Blip 
       key={blip.id} 
@@ -53,7 +71,12 @@ class Blips extends Component {
   }
 
   render() {
-    return this.renderMyBlips()
+    return (
+      <>
+      <SortButton toggle={this.toggleSort} text={this.state.toggle ? "Unsort Blips" : "Sort By Username"} /> 
+      { this.renderMyBlips() }
+      </>
+    )
   }
 }
 

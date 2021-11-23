@@ -7,7 +7,7 @@ class HomePage extends Component {
   render() { 
     return this.props.loading ? "Loading ..." : (
       <>
-      <BlipForm />
+      <BlipForm /> 
       <p>Blips from creators you follow and blips you have created will show here.</p>
       <Blips renderMethod="Home" />
       </>

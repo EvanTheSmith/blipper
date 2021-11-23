@@ -1,9 +1,13 @@
 export const fetchBlips = () => {
+  console.log("c");
   return (dispatch) => {
     dispatch({ type: 'LOADING' });
     fetch('http://localhost:3000/blips')
     .then(response => response.json())
-    .then(blips => dispatch({ type: 'ADD_BLIPS', blips }));
+    .then(blips => { 
+      console.log("d");
+      dispatch({ type: 'ADD_BLIPS', blips })
+    });
   };
 }
 
