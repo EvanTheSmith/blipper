@@ -4,9 +4,10 @@ Welcome to Blipper, a new social media site for a modern Web. User account creat
 
 # Usage
 
-First, ensure you have the following dependencies installed:
+First, ensure you have the following dependencies installed on the frontend:
 > npm install react-router-dom
 > npm install --save react-redux
+> npm install --save redux
 > npm install --save redux-thunk
 > npm install --save redux-devtools-extension
 
