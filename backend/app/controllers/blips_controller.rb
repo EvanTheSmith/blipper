@@ -4,7 +4,7 @@ class BlipsController < ApplicationController
       render json: BlipSerializer.new(blips).to_serialized_json
     end
 
-    def profile_blips
+    def user_blips
       # add code
       blips = Blip.all.sort_by(&:created_at).reverse.select {|blip| blip.user_id == params[:user_id]}
       render json: BlipSerializer.new(blips).to_serialized_json
