@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get '/users' => 'users#index'
   
   get '/blips' => 'blips#index'
+  get '/user_blips' => 'blips#user' # Get own blips only
   post '/blips', to: 'blips#create'
   delete '/blips/:id', to: 'blips#destroy' # Delete a Blip
   
