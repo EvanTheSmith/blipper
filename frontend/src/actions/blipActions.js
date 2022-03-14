@@ -10,7 +10,7 @@ export const fetchBlips = () => {
 export const fetchUserBlips = (user_id) => {
   return (dispatch) => {
     dispatch({ type: 'LOADING' });
-    fetch(`http://localhost:3000/profile_blips/${blip_id}`)
+    fetch(`http://localhost:3000/user_blips/${user_id}`)
     .then(response => response.json())
     .then(blips => dispatch({ type: 'ADD_BLIPS', blips }));
   };
