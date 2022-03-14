@@ -1,7 +1,11 @@
 class BlipsController < ApplicationController
-    def index
+    def index # return ALL the blips
       blips = Blip.all.sort_by(&:created_at).reverse
       render json: BlipSerializer.new(blips).to_serialized_json
+    end
+
+    def profile_blips
+      # add code
     end
 
     def create
