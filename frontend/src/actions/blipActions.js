@@ -1,13 +1,9 @@
-export const fetchBlips = () => {
-  console.log("c");
+export const fetchBlips = (blip_id) => {
   return (dispatch) => {
     dispatch({ type: 'LOADING' });
-    fetch('http://localhost:3000/blips')
+    fetch(`http://localhost:3000/profile_blips/${blip_id}`)
     .then(response => response.json())
-    .then(blips => { 
-      console.log("d");
-      dispatch({ type: 'ADD_BLIPS', blips })
-    });
+    .then(blips => dispatch({ type: 'ADD_BLIPS', blips }));
   };
 }
 
