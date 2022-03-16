@@ -45,7 +45,7 @@ const mapStateToProps = (state) => ({ users: state.users, current_user: state.us
 const mapDispatchToProps = dispatch => ({
     fetchBlips: () => dispatch(fetchBlips()),
     fetchUsers: () => dispatch(fetchUsers()),
-    fetchUserBlips: () => dispatch(fetchUserBlips())
+    fetchUserBlips: (user_id) => dispatch(fetchUserBlips(user_id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
