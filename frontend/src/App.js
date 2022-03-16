@@ -11,11 +11,17 @@ import UsersPage from './pages/UsersPage'
 import UserPage from './pages/UserPage'
 import Footer from './components/Footer'
 
+// TESTING SOMETHING //
+import { fetchUserBlips } from './actions/blipActions'
+///////////////////////
+
 class App extends Component { 
 
   componentDidMount() {
     this.props.fetchUsers();
-    this.props.fetchBlips();
+    // TESTING SOMETHING //
+    // this.props.fetchBlips(); // DISABLING THIS FOR NOW //
+    this.props.
   }
 
   currentUserObj = () => this.props.users.filter(user => user.id === this.props.current_user)[0];
@@ -38,7 +44,8 @@ const mapStateToProps = (state) => ({ users: state.users, current_user: state.us
 
 const mapDispatchToProps = dispatch => ({
     fetchBlips: () => dispatch(fetchBlips()),
-    fetchUsers: () => dispatch(fetchUsers())
+    fetchUsers: () => dispatch(fetchUsers()),
+    fetchUserBlips: () => dispatch(fetchUserBlips())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
