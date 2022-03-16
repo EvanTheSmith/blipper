@@ -21,7 +21,7 @@ class App extends Component {
     this.props.fetchUsers();
     // TESTING SOMETHING //
     // this.props.fetchBlips(); // DISABLING THIS FOR NOW //
-    this.props.
+    this.props.fetchUserBlips(this.props.current_user); // temporary fetch to test fetchUserBlips
   }
 
   currentUserObj = () => this.props.users.filter(user => user.id === this.props.current_user)[0];
