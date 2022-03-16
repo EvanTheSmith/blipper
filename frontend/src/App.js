@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 import { fetchBlips } from './actions/blipActions'
+import { fetchUserBlips } from './actions/blipActions' // NEW //
 import { fetchUsers } from './actions/userActions'
 
 import Navbar from './components/Navbar'
@@ -11,17 +12,12 @@ import UsersPage from './pages/UsersPage'
 import UserPage from './pages/UserPage'
 import Footer from './components/Footer'
 
-// TESTING SOMETHING //
-import { fetchUserBlips } from './actions/blipActions'
-///////////////////////
-
 class App extends Component { 
 
   componentDidMount() {
     this.props.fetchUsers();
-    // TESTING SOMETHING //
-    // this.props.fetchBlips(); // DISABLING THIS FOR NOW //
-    this.props.fetchUserBlips(this.props.current_user); // temporary fetch to test fetchUserBlips
+    this.props.fetchBlips();
+    // this.props.fetchUserBlips(this.props.current_user); SAVE FOR LATER IMPLEMENTATION //
   }
 
   currentUserObj = () => this.props.users.filter(user => user.id === this.props.current_user)[0];
