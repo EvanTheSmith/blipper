@@ -1,8 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import Blips from '../containers/Blips'
+import { fetchUserBlips } from '../actions/blipActions' // NEW //
 
 class UserPage extends Component {
+
+  componentDidMount() {
+    this.props.fetchUserBlips(this.props.current_user);
+  }
 
   countMyLikes = (user) => {
     let myBlips = this.props.blips.filter(blip => blip.user.id === user.id && blip.likers.length !== 0);
@@ -37,11 +42,15 @@ class UserPage extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({ 
+const mapStateToProps = state => ({ 
   users: state.users, 
   blips: state.blips,
   loading: state.loading, 
   current_user: state.user_id 
 })
 
-export default connect(mapStateToProps)(UserPage)
+const mapDispatchToProps = dispatch => ({
+  fetchUserBlips: (user_id) => dispatch(fetchUserBlips(user_id))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserPage);

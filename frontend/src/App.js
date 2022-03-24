@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 import { fetchBlips } from './actions/blipActions'
-import { fetchUserBlips } from './actions/blipActions' // NEW //
 import { fetchUsers } from './actions/userActions'
 
 import Navbar from './components/Navbar'
@@ -40,8 +39,7 @@ const mapStateToProps = (state) => ({ users: state.users, current_user: state.us
 
 const mapDispatchToProps = dispatch => ({
     fetchBlips: () => dispatch(fetchBlips()),
-    fetchUsers: () => dispatch(fetchUsers()),
-    fetchUserBlips: (user_id) => dispatch(fetchUserBlips(user_id))
+    fetchUsers: () => dispatch(fetchUsers())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
