@@ -6,6 +6,7 @@ import { fetchUserBlips } from '../actions/blipActions' // NEW //
 class UserPage extends Component {
 
   componentDidMount() {
+    // Need to add code to prevent fetch if data is already in Redux Store
     this.props.fetchUserBlips(this.props.current_user);
   }
 
