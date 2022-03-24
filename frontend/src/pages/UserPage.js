@@ -7,7 +7,8 @@ class UserPage extends Component {
   countMyLikes = (user) => {
     let myBlips = this.props.blips.filter(blip => blip.user.id === user.id && blip.likers.length !== 0);
     let myLikes = myBlips.map(blip => blip.likers).flat(1);
-    // let removeOwnLikes = myLikes.filter(liker => liker.id !== user.id); // OPTIONAL : filter own likes
+    // OPTIONAL : filter own likes
+    // let removeOwnLikes = myLikes.filter(liker => liker.id !== user.id);
     return myLikes.length;
   }
 
