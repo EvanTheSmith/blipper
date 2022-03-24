@@ -15,7 +15,7 @@ class App extends Component {
 
   componentDidMount() {
     this.props.fetchUsers();
-    this.props.fetchBlips();
+    // this.props.fetchBlips(); TEMPORARILY disabling this :D // 
     // this.props.fetchUserBlips(this.props.current_user); SAVE FOR LATER IMPLEMENTATION //
   }
 
