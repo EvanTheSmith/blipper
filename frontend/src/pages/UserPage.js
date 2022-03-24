@@ -6,8 +6,9 @@ import { fetchUserBlips } from '../actions/blipActions' // NEW //
 class UserPage extends Component {
 
   componentDidMount() {
-    // Need to add code to prevent fetch if data is already in Redux Store
-    this.props.fetchUserBlips(this.props.current_user);
+    // Only fetches data if not already present in React Store //
+    if (!this.props.blips.some(blip => blip.user.id === this.props.current_user )) {
+    this.props.fetchUserBlips(this.props.current_user); }
   }
 
   countMyLikes = (user) => {
