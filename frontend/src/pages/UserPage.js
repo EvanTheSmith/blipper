@@ -2,11 +2,14 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import Blips from '../containers/Blips'
 import { fetchUserBlips } from '../actions/blipActions' // NEW //
+import { fetchUsers } from '../actions/userActions' // NEW //
 
 class UserPage extends Component {
 
   componentDidMount() {
-    // Only fetches data if not already present in React Store //
+    // Fetch Users // 
+    this.props.users == [] && this.props.fetchUsers();
+    // Fetch Blips for the Current User
     if (!this.props.blips.some(blip => blip.user.id === this.props.current_user )) {
     this.props.fetchUserBlips(this.props.current_user); }
   }
@@ -52,6 +55,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
+  fetchUsers: () => dispatch(fetchUsers()),
   fetchUserBlips: (user_id) => dispatch(fetchUserBlips(user_id))
 })
 
