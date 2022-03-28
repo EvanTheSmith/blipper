@@ -14,8 +14,8 @@ import Footer from './components/Footer'
 class App extends Component { 
 
   componentDidMount() {
-    this.props.fetchUsers(); // Removing these soon !
-    this.props.fetchBlips(); // Removing these soon !
+    // this.props.fetchUsers(); // Removing these soon ! //
+    // this.props.fetchBlips(); // Removing these soon ! //
   }
 
   currentUserObj = () => this.props.users.filter(user => user.id === this.props.current_user)[0];
