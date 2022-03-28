@@ -7,9 +7,9 @@ import { fetchUsers } from '../actions/userActions' // NEW //
 class UserPage extends Component {
 
   componentDidMount() {
-    // Fetch Users // 
+    // Fetch Users (if not already in Redux) // 
     this.props.users == [] && this.props.fetchUsers();
-    // Fetch Blips for the Current User
+    // Fetch Blips for the Current User (if not already in Redux) //
     if (!this.props.blips.some(blip => blip.user.id === this.props.current_user )) {
     this.props.fetchUserBlips(this.props.current_user); }
   }
