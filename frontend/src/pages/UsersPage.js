@@ -2,8 +2,14 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { followUser, unfollowUser, changeUser  } from '../actions/userActions'
 import User from '../components/User'
+import { fetchUsers } from '../actions/userActions' // NEW //
 
 class UsersPage extends Component {
+
+  componentDidMount() {
+    // Fetch Users (if not already in Redux) // 
+    this.props.users.length || this.props.fetchUsers();
+  }
 
   renderUsers = () => {
     return this.props.users.map(user => <User key={user.id} renderFollowButton={this.renderFollowButton(user)} user={user} />)
@@ -47,6 +53,7 @@ const mapStateToProps = (state) => ({
 })
  
 const mapDispatchToProps = dispatch => ({ 
+  fetchUsers: () => dispatch(fetchUsers()),
   followUser: payload => dispatch(followUser(payload)),
   unfollowUser: payload => dispatch(unfollowUser(payload)),
   changeUser: () => dispatch(changeUser())
