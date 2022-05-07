@@ -11,7 +11,7 @@ class BlipForm extends Component {
   handleSubmit = (e) => { 
       e.preventDefault();
       this.props.postBlip(this.state);
-      this.setState({content: ''});
+      this.setState({content: ''}); // Reset content back to default state (empty)
   }
 
   render() {
