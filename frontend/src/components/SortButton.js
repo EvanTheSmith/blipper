@@ -1,8 +1,8 @@
 import React from "react"
 
-const SortButton = (props) => (
+const SortButton = ({toggle, text}) => (
   <div>
-      <button onClick={props.toggle}>{props.text}</button>
+      <button onClick={toggle}>{text}</button>
 </div>
 )
 
