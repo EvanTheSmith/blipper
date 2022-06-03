@@ -7,7 +7,7 @@ const Navbar = (props) => {
     <div className="navBar">
         <img className="banner" alt="Blipper banner" src='/banner.png' />
         <NavLink className="navLinks" to="/" >Home</NavLink>{" / "}
-        <NavLink className="navLinks" to="/users" >Users</NavLink>{" / "}
+        <NavLink className="navLinks" to="users" >Users</NavLink>{" / "}
         <NavLink className="navLinks" to={`/users/${userName}`} >Profile</NavLink>
     </div>
    )
