@@ -24,15 +24,15 @@ class App extends Component {
 
   render() {
   return (
-    <Router>
     <div className="App">
+    <Router>
       <Navbar user={this.currentUserObj()} />
       <Route exactly path="/" component={HomePage} />
       <Route exactly path="/users" component={UsersPage} />
       <Route exactly path="/users/:username" component={UserPage} />
       <Footer />
-    </div>
     </Router>
+    </div>
   )}
 }
 
