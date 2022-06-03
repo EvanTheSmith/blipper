@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-// import {BrowserRouter as Router, Route} from 'react-router-dom'
-import {Router, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 import { fetchBlips } from './actions/blipActions'
 import { fetchUsers } from './actions/userActions'
@@ -22,19 +21,24 @@ class App extends Component {
 
   currentUserObj = () => this.props.users.filter(user => user.id === this.props.current_user)[0];
 
-  render() {
-  return (
-    <div className="App">
-    <Router>
-      <Navbar user={this.currentUserObj()} />
-      <Route exactly path="/" component={HomePage} />
-      <Route exactly path="/users" component={UsersPage} />
-      <Route exactly path="/users/:username" component={UserPage} />
-      <Footer />
-    </Router>
-    </div>
-  )}
+  render () {
+    return (
+      <div className="App">
+        <Router>
+          <Navbar user={this.currentUserObj()} />
+        </Router>
+      </div>
+    )
+  }
 }
+
+
+//       
+//       <Route exactly path="/" component={HomePage} />
+//       <Route exactly path="/users" component={UsersPage} />
+//       <Route exactly path="/users/:username" component={UserPage} />
+//       <Footer />
+
 
 const mapStateToProps = (state) => ({ users: state.users, current_user: state.user_id })
 
