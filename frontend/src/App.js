@@ -26,6 +26,7 @@ class App extends Component {
       <div className="App">
         <Router>
           <Navbar user={this.currentUserObj()} />
+          
         </Router>
       </div>
     )
