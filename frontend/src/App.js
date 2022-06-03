@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+// import {BrowserRouter as Router, Route} from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { fetchBlips } from './actions/blipActions'
 import { fetchUsers } from './actions/userActions'
@@ -24,10 +25,12 @@ class App extends Component {
   render () {
     return (
       <div className="App">
-        <Router>
-          <Navbar user={this.currentUserObj()} />
-          
-        </Router>
+        <BrowserRouter>
+        <Navbar user={this.currentUserObj()} />
+          <Routes>
+            <Route path="/" component={HomePage} />
+          </Routes>
+        </BrowserRouter>
       </div>
     )
   }
