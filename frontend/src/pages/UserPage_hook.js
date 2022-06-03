@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import Blips from '../containers/Blips'
 import { fetchUserBlips } from '../actions/blipActions' 
 import { fetchUsers } from '../actions/userActions' 
+import { useParams } from 'react-router-dom'; // NEW //
+
 
 class UserPage extends Component {
 
@@ -23,7 +25,8 @@ class UserPage extends Component {
   }
 
   renderIfValidUser = () => {
-    let { username } = this.props.match.params; // Grab username from URL params
+    // let { username } = this.props.match.params; // Grab username from URL params
+
     let canFindUser = this.props.users.filter(user => user.username === username)[0];
 
     // If the username in the URL params isn't a valid user, stop everything
