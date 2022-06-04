@@ -27,7 +27,7 @@ class Blips extends Component {
   }
 
   renderPoster = (userName, renderMethod) => () => {
-    return renderMethod === "Home" && <NavLink className="navLinks" to={`/users/${userName}`} exactly >{userName}</NavLink>;
+    return renderMethod === "Home" && <NavLink className="navLinks" to={`/users/${userName}`} exact >{userName}</NavLink>;
     // only render poster if renderMethod is Home
   }
 
