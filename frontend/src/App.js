@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import { fetchBlips } from './actions/blipActions'
 import { fetchUsers } from './actions/userActions'
@@ -24,27 +24,17 @@ class App extends Component {
   render () {
     return (
       <div className="App">
-        <BrowserRouter>
+        <Router>
         <Navbar user={this.currentUserObj()} />
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/users" element={<UsersPage />} />
-            <Route path="/users/:username" element={<UserPage />} />
-          </Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/users" element={<UsersPage />} />
+          <Route path="/users/:username" element={<UserPage />} />
           <Footer />
-        </BrowserRouter>
+        </Router>
       </div>
     )
   }
-}
-
-
-//       
-//       
-//       
-//       
-//       
-
+}   
 
 const mapStateToProps = (state) => ({ users: state.users, current_user: state.user_id })
 
