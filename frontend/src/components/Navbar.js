@@ -6,9 +6,9 @@ const Navbar = (props) => {
    return (
     <div className="navBar">
         <img className="banner" alt="Blipper banner" src='/banner.png' />
-        <NavLink className="navLinks" to="/" >Home</NavLink>{" / "}
-        <NavLink className="navLinks" to="users" >Users</NavLink>{" / "}
-        <NavLink className="navLinks" to={`/users/${userName}`} >Profile</NavLink>
+        <NavLink className="navLinks" to="/" exact >Home</NavLink>{" / "}
+        <NavLink className="navLinks" to="users" exact >Users</NavLink>{" / "}
+        <NavLink className="navLinks" to={`/users/${userName}`} exact >Profile</NavLink>
     </div>
    )
 }
