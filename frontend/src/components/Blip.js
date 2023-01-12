@@ -5,7 +5,9 @@ const Blip = (props) => (
 
     <tr>
       <td> {props.blip.content} </td>
-      <td className="blip-right"> {props.renderPoster()} </td>
+      <td className="blip-right"> 
+      {props.renderPoster()} 
+      </td>
     </tr>
 
     <tr>
@@ -15,7 +17,7 @@ const Blip = (props) => (
       </td>
 
       <td className="blip-right">
-      {props.renderDelete()}
+      {props.renderDelete()} {/* render the delete button IF the current user is the creator of this blip */}
       </td>
     </tr>
 
