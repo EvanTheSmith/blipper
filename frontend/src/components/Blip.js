@@ -11,7 +11,7 @@ const Blip = (props) => (
     <tr>
       <td>
       {props.renderLike()}
-      Likes: {props.blip.likers.length}
+      Likes: {props.blip.likers.length} {/* count the number of likes the blip has received and display */}
       </td>
 
       <td className="blip-right">
