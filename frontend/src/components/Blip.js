@@ -6,7 +6,7 @@ const Blip = (props) => (
     <tr>
       <td> {props.blip.content} </td>
       <td className="blip-right"> 
-      {props.renderPoster()} 
+      {props.renderPoster()} {/* render the name of the user who posted this blip if we are currently on the Home page */}
       </td>
     </tr>
 
