@@ -10,7 +10,7 @@ class Blips extends Component {
   // LIVE CODING //
   state = { toggle: false };
 
-  toggleSort = () => {
+  toggleSort = () => { // ternary operator that inverts the current value of this.state.toggle
     this.state.toggle ? this.setState({toggle: false}) : this.setState({toggle: true})
   }
   //
@@ -54,10 +54,10 @@ class Blips extends Component {
       // LIVE CODING //
       let sortedArray = [...renderArray].sort((a, b) => {
         let fa = a.user.username, fb = b.user.username, output = 0;
-        fa < fb ? (output = -1) : (output = 1);
+        fa < fb ? (output = -1) : (output = 1); // take the renderArray above and sort it for potential use
         return output;
       });
-      this.state.toggle && (renderArray = sortedArray);
+      this.state.toggle && (renderArray = sortedArray); // if sort is toggled to TRUE, use the sortedArray below instead
       //////////////////////////////////////////////////
     
     return renderArray.map(blip => <Blip 
