@@ -1,3 +1,6 @@
+// an attempt to convert UserPage from a React Class to a React Hook :: WIP
+///////////////////////////////////////////////////////////////////////////
+
 import React from 'react'
 import { useSelector } from 'react-redux';
 import Blips from '../containers/Blips'
