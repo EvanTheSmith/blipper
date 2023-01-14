@@ -5,7 +5,7 @@ import BlipForm from '../components/BlipForm'
 
 class HomePage extends Component {
   render() { 
-    return this.props.loading ? "Loading ..." : (
+    return this.props.loading ? "Loading ..." : ( // the BlipForm only renders if the state loading parameter is false
       <>
       <BlipForm /> 
       <p>Blips from creators you follow and blips you have created will show here.</p>
