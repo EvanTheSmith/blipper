@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import Blips from '../containers/Blips'
 import { fetchUserBlips } from '../actions/blipActions' 
 import { fetchUsers } from '../actions/userActions' 
-import { useEffect, useParams } from 'react-router-dom'; // NEW //
+import { useEffect, useParams } from 'react-router-dom'
 
 
 function UserPage (props) {

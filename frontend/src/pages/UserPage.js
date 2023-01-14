@@ -43,7 +43,7 @@ class UserPage extends Component {
   }
 
   render() {
-    return this.props.loading ? "Loading ..." : this.renderIfValidUser()
+    return this.props.loading ? "Loading ..." : this.renderIfValidUser() // only renders if the state loading parameter is false
   }
 }
 

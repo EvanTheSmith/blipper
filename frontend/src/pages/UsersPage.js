@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { followUser, unfollowUser, changeUser  } from '../actions/userActions'
 import User from '../components/User'
-import { fetchUsers } from '../actions/userActions' // NEW //
+import { fetchUsers } from '../actions/userActions'
 
 class UsersPage extends Component {
 
@@ -35,7 +35,7 @@ class UsersPage extends Component {
   }
 
   render() { 
-    return this.props.loading ? "Loading ..." : (
+    return this.props.loading ? "Loading ..." : ( // only renders if the state loading parameter is false
       <div>
       {this.renderUsers()}
       <br />
