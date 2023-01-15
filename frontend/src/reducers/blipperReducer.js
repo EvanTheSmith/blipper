@@ -77,11 +77,3 @@ const blipperReducer = (state = { user_id: 1, blips: [], users: [], loading: fal
   }
    
   export default blipperReducer;
-
-// case 'RESOLVE_ERROR': // This sets loading back to false after an error message
-//   return {
-//     ...state,
-//     blips: [...state.blips],
-//     users: [...state.users],
-//     loading: false
-//   }
