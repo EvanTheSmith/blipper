@@ -11,9 +11,10 @@ import thunk from 'redux-thunk';
 import blipperReducer from './reducers/blipperReducer';
 
 const store = createStore(blipperReducer, composeWithDevTools(applyMiddleware(thunk)));
-// const store = configureStore({ reducer: blipperReducer, middleware: thunk });
 
 ReactDOM.render(
-    <Provider store={store}><App /></Provider>, 
+    <Provider store={store}>
+        <App />
+    </Provider>, 
     document.getElementById('root')
 );
