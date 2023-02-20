@@ -27,4 +27,6 @@ export const unfollowUser = (payload) => {
   };
 }
 
-export const changeUser = () => ({ type: 'CHANGE_USER' })
+export const changeUser = () => {
+  return { type: 'CHANGE_USER' }
+}
