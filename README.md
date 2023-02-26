@@ -1,5 +1,5 @@
 # Blipper
-Welcome to Blipper, a new social media site for a modern Web. User account creation is coming in the future, but for now, we have the ability to post messages, like other messages, and follow users.
+Welcome to Blipper, a new social media site for a modern Web. User account creation is coming in the future. Currently we have the functionality to post messages, like messages, and follow users.
 
 # Usage
 First, navigate to the backend directory and enter "rails s" into your terminal to launch the server. 
